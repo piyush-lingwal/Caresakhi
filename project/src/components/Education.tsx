@@ -58,28 +58,28 @@ const Education = () => {
   ];
 
   return (
-    <section id="education" className="py-16 sm:py-20 bg-white">
+    <section id="education" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
             <span className="bg-gradient-to-r from-emerald-600 to-orange-600 bg-clip-text text-transparent">
               Why Choose Reusable?
             </span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Discover the science-backed benefits of making the switch to sustainable menstrual products.
           </p>
         </div>
 
         {/* Benefits Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-16 sm:mb-20">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
           {benefits.map((benefit, index) => {
             const IconComponent = benefit.icon;
             return (
               <div
                 key={index}
-                className="group bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100"
+                className="group bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100"
                 onMouseEnter={() => setActiveTab(index)}
               >
                 <div className="text-center space-y-4">
@@ -103,16 +103,67 @@ const Education = () => {
             );
           })}
         </div>
-        
+
+        {/* Detailed Information */}
+        <div className="bg-gradient-to-r from-emerald-50 to-orange-50 rounded-3xl p-8 lg:p-12 mb-20">
+          <div className="max-w-4xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h3 className="text-3xl font-bold text-gray-800 mb-6">
+                  {benefits[activeTab].title}
+                </h3>
+                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                  {benefits[activeTab].details}
+                </p>
+                
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
+                    <span className="text-gray-700">Clinically tested and approved</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
+                    <span className="text-gray-700">FDA-registered materials</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
+                    <span className="text-gray-700">Endorsed by healthcare professionals</span>
+                  </div>
+                </div>
+
+                <button className="mt-8 bg-emerald-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-emerald-700 transition-colors flex items-center space-x-2">
+                  <Play className="w-5 h-5" />
+                  <span>Watch Educational Video</span>
+                </button>
+              </div>
+
+              <div className="relative">
+                <div className="aspect-video bg-white rounded-2xl shadow-xl overflow-hidden">
+                  <img
+                    src="https://images.pexels.com/photos/7262708/pexels-photo-7262708.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    alt="Educational content"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
+                    <button className="bg-white bg-opacity-90 p-6 rounded-full hover:scale-110 transition-transform">
+                      <Play className="w-8 h-8 text-emerald-600 ml-1" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Educational Resources */}
         <div>
-          <h3 className="text-3xl sm:text-4xl font-bold text-center mb-12">
+          <h3 className="text-3xl font-bold text-center mb-12">
             <span className="bg-gradient-to-r from-emerald-600 to-orange-600 bg-clip-text text-transparent">
               Educational Resources
             </span>
           </h3>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
             {educationalContent.map((content, index) => (
               <div
                 key={index}
@@ -133,7 +184,7 @@ const Education = () => {
                   <h4 className="text-xl font-semibold text-gray-800 mb-3 group-hover:text-emerald-600 transition-colors">
                     {content.title}
                   </h4>
-                  <p className="text-gray-600 mb-4 leading-relaxed line-clamp-2">
+                  <p className="text-gray-600 mb-4 leading-relaxed">
                     {content.preview}
                   </p>
                   <Link
