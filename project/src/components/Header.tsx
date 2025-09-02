@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ShoppingCart, User, Download, Bell } from 'lucide-react';
+import { Menu, X, ShoppingCart, User, Download } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 
@@ -20,14 +20,10 @@ const Header = () => {
     { name: 'Contact', href: '/contact' }
   ];
 
-  const isActive = (path) => {
-    if (path === '/' && location.pathname === '/') return true;
-    if (path !== '/' && location.pathname.startsWith(path)) return true;
-    return false;
-  };
+  const isActive = (path) => location.pathname === path;
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-white bg-opacity-95 backdrop-blur-md shadow-lg z-50 border-b border-gray-100 h-20">
+    <header className="fixed top-0 left-0 right-0 bg-white bg-opacity-95 backdrop-blur-md shadow-md z-50 border-b border-gray-100 h-20">
       <div className="container mx-auto px-4 h-full">
         <div className="flex items-center justify-between h-full">
           
@@ -36,60 +32,53 @@ const Header = () => {
               src="/navbar logo2.png" 
               alt="CareSakhi" 
               loading="lazy"
-              className="h-12 lg:h-14 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
+              className="h-14 w-auto object-contain transition-transform duration-300"
             />
           </Link>
 
-          <nav role="navigation" className="hidden lg:flex items-center space-x-8 flex-1 justify-center">
+          {/* Desktop Navigation */}
+          <nav role="navigation" className="hidden lg:flex items-center space-x-8">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
-                className={`font-medium text-base transition-all duration-300 hover:text-pink-600 relative whitespace-nowrap ${
-                  isActive(item.href) ? 'text-pink-600' : 'text-gray-700'
-                }`}
+                className={`nav-link-desktop font-medium text-base ${isActive(item.href) ? 'active' : ''}`}
               >
                 {item.name}
-                {isActive(item.href) && (
-                  <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-2 h-2 bg-pink-600 rounded-full"></div>
-                )}
               </Link>
             ))}
           </nav>
 
+          {/* Right Side Actions */}
           <div className="flex items-center space-x-2">
-             <div className="hidden lg:flex items-center space-x-2">
-                <a
-                  href="/app-release.apk"
-                  download="CareSakhi-App.apk"
-                  className="flex items-center space-x-2 bg-emerald-600 text-white px-4 py-2 rounded-full font-medium text-sm hover:bg-emerald-700 transition-all duration-300 transform hover:scale-105"
-                >
-                  <Download className="w-4 h-4" />
-                  <span>Get App</span>
-                </a>
-                <Link
-                  to="/cart"
-                  aria-label="Cart"
-                  className="relative p-2 text-gray-700 hover:text-pink-600 transition-all duration-300 hover:bg-pink-50 rounded-full"
-                >
-                  <ShoppingCart className="w-5 h-5" />
-                  {state.itemCount > 0 && (
-                    <span className="absolute -top-1 -right-1 bg-pink-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-medium">
-                      {state.itemCount}
-                    </span>
-                  )}
-                </Link>
-             </div>
+            <div className="hidden lg:flex items-center space-x-2">
+              <a
+                href="/app-release.apk"
+                download="CareSakhi-App.apk"
+                className="flex items-center space-x-2 bg-emerald-600 text-white px-4 py-2 rounded-full font-medium text-sm hover:bg-emerald-700 transition-all duration-300"
+              >
+                <Download className="w-4 h-4" />
+                <span>Get App</span>
+              </a>
+              <Link to="/cart" aria-label="Cart" className="relative p-2 text-gray-700 hover:text-pink-600 transition-colors rounded-full hover:bg-pink-50">
+                <ShoppingCart className="w-5 h-5" />
+                {state.itemCount > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-pink-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-medium">
+                    {state.itemCount}
+                  </span>
+                )}
+              </Link>
+            </div>
 
             {user ? (
               <div className="relative hidden lg:block">
                 <button
                   aria-label="User Menu"
                   onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                  className="flex items-center space-x-2 p-2 text-gray-700 hover:text-pink-600 transition-all duration-300 hover:bg-pink-50 rounded-lg"
+                  className="flex items-center space-x-2 p-2 text-gray-700 rounded-lg"
                 >
                   <User className="w-5 h-5" />
-                  <span className="font-medium text-base truncate max-w-[100px]">{user.name}</span>
+                  <span className="font-medium text-base">{user.name}</span>
                 </button>
                 {isDropdownOpen && (
                   <div className="absolute right-0 top-full mt-2 w-48 bg-white rounded-xl shadow-2xl border border-gray-100 animate-fade-in">
@@ -103,8 +92,8 @@ const Header = () => {
               </div>
             ) : (
               <div className="hidden lg:flex items-center space-x-2">
-                <Link to="/login" className="text-gray-700 hover:text-pink-600 font-medium text-base px-3 py-2 rounded-lg">Login</Link>
-                <Link to="/register" className="bg-pink-600 text-white px-4 py-2 rounded-full font-medium text-base hover:bg-pink-700 transition-all duration-300">Sign Up</Link>
+                <Link to="/login" className="text-gray-700 font-medium text-base px-3 py-2 rounded-lg">Login</Link>
+                <Link to="/register" className="bg-pink-600 text-white px-4 py-2 rounded-full font-medium text-base hover:bg-pink-700">Sign Up</Link>
               </div>
             )}
 
@@ -118,6 +107,7 @@ const Header = () => {
           </div>
         </div>
 
+        {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="lg:hidden absolute top-20 left-0 right-0 border-t border-gray-100 py-4 bg-white shadow-lg animate-fade-in">
             <nav className="space-y-2 px-4">
