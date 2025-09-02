@@ -42,7 +42,7 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className={`nav-link-desktop font-medium text-base rounded-md focus-visible:ring-2 focus-visible:ring-pink-500 focus-visible:ring-offset-2 ${isActive(item.href) ? 'active' : ''}`}
+                className={`nav-link-desktop font-medium text-base px-2 py-1 rounded-md transition-transform duration-150 ease-in-out active:scale-95 focus-visible:bg-pink-50 ${isActive(item.href) ? 'active' : ''}`}
               >
                 {item.name}
               </Link>
