@@ -99,32 +99,32 @@ const ProductShowcase = () => {
   };
 
   return (
-    <section id="products" className="py-20 bg-gray-50">
+    <section id="products" className="py-16 sm:py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
             <span className="bg-gradient-to-r from-emerald-600 to-orange-600 bg-clip-text text-transparent">
               Revolutionary Products
             </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Discover our premium collection of sustainable menstrual products, 
             designed for comfort, protection, and environmental responsibility.
           </p>
         </div>
 
         {/* Category Filter */}
-        <div className="flex justify-center mb-12">
-          <div className="inline-flex bg-white rounded-full p-2 shadow-lg">
+        <div className="mb-12">
+          <div className="flex space-x-2 pb-4 sm:justify-center overflow-x-auto scrollbar-hide">
             {categories.map((category) => (
               <button
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
-                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+                className={`px-5 py-3 rounded-full font-semibold transition-all duration-300 whitespace-nowrap text-sm sm:text-base ${
                   activeCategory === category.id
                     ? 'bg-emerald-600 text-white shadow-lg'
-                    : 'text-gray-600 hover:text-emerald-600 hover:bg-emerald-50'
+                    : 'bg-white text-gray-600 hover:text-emerald-600 hover:bg-emerald-50 shadow-sm'
                 }`}
               >
                 {category.name}
@@ -133,8 +133,9 @@ const ProductShowcase = () => {
           </div>
         </div>
 
+
         {/* Products Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
           {filteredProducts.map((product) => (
             <div
               key={product.id}
@@ -150,27 +151,24 @@ const ProductShowcase = () => {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 
-                {/* Discount Badge */}
                 {product.originalPrice > product.price && (
-                  <div className="absolute top-4 left-4 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                  <div className="absolute top-3 left-3 bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
                     Save ${product.originalPrice - product.price}
                   </div>
                 )}
 
-                {/* Quick Actions */}
-                <div className={`absolute top-4 right-4 flex flex-col space-y-2 transition-all duration-300 ${
+                <div className={`absolute top-3 right-3 flex flex-col space-y-2 transition-all duration-300 ${
                   hoveredProduct === product.id ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'
                 }`}>
-                  <button className="bg-white p-2 rounded-full shadow-lg hover:bg-emerald-50 hover:text-emerald-600 transition-colors">
+                  <button className="bg-white p-2 rounded-full shadow-lg hover:bg-emerald-50 text-gray-600 hover:text-emerald-600 transition-colors">
                     <Heart className="w-5 h-5" />
                   </button>
-                  <button className="bg-white p-2 rounded-full shadow-lg hover:bg-emerald-50 hover:text-emerald-600 transition-colors">
+                  <button className="bg-white p-2 rounded-full shadow-lg hover:bg-emerald-50 text-gray-600 hover:text-emerald-600 transition-colors">
                     <Info className="w-5 h-5" />
                   </button>
                 </div>
 
-                {/* Quick Add to Cart */}
-                <div className={`absolute bottom-4 left-4 right-4 transition-all duration-300 ${
+                <div className={`absolute bottom-3 left-3 right-3 transition-all duration-300 ${
                   hoveredProduct === product.id ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                 }`}>
                   <button 
@@ -184,12 +182,12 @@ const ProductShowcase = () => {
               </div>
 
               {/* Product Info */}
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-lg font-semibold text-gray-800 group-hover:text-emerald-600 transition-colors">
+              <div className="p-4 sm:p-6">
+                <div className="flex items-start justify-between mb-2">
+                  <h3 className="text-lg font-semibold text-gray-800 group-hover:text-emerald-600 transition-colors pr-2">
                     {product.name}
                   </h3>
-                  <div className="flex items-center space-x-1">
+                  <div className="flex items-center space-x-1 flex-shrink-0">
                     <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                     <span className="text-sm text-gray-600">{product.rating}</span>
                   </div>
@@ -199,21 +197,6 @@ const ProductShowcase = () => {
                   {product.reviews} reviews
                 </p>
 
-                {/* Features */}
-                <div className="mb-4">
-                  <div className="flex flex-wrap gap-1">
-                    {product.features.slice(0, 2).map((feature, index) => (
-                      <span
-                        key={index}
-                        className="text-xs bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full"
-                      >
-                        {feature}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Price */}
                 <div className="flex items-center space-x-2 mb-4">
                   <span className="text-2xl font-bold text-gray-800">
                     ₹{product.price}
@@ -225,21 +208,6 @@ const ProductShowcase = () => {
                   )}
                 </div>
 
-                {/* Size Options */}
-                <div className="mb-4">
-                  <div className="flex space-x-1">
-                    {product.sizes.slice(0, 3).map((size, index) => (
-                      <button
-                        key={index}
-                        className="text-xs border border-gray-300 px-2 py-1 rounded hover:border-emerald-500 hover:text-emerald-600 transition-colors"
-                      >
-                        {size}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Add to Cart Button */}
                 <button 
                   onClick={() => handleAddToCart(product)}
                   className="w-full bg-gray-100 text-gray-700 py-3 px-4 rounded-xl font-semibold hover:bg-emerald-600 hover:text-white transition-all duration-300 flex items-center justify-center space-x-2"
