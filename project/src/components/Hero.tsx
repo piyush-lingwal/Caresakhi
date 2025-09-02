@@ -152,6 +152,33 @@ const Hero = () => {
               </div>
             </div>
 
+            {/* Image Section - Equal Width */}
+            <div className="relative order-1 lg:order-2">
+              {/* Main Product Showcase */}
+              <div className="relative z-10 transform hover:scale-105 transition-transform duration-700 mx-auto max-w-md lg:max-w-none">
+                <div className="aspect-square bg-gradient-to-br from-pink-100 via-white to-purple-100 rounded-3xl p-4 lg:p-8 shadow-2xl backdrop-blur-lg border border-white/50 relative overflow-hidden">
+                  {/* Product Image */}
+                  <div className="relative z-10 group">
+                    <img 
+                      src="https://images.pexels.com/photos/7319070/pexels-photo-7319070.jpeg?auto=compress&cs=tinysrgb&w=600"
+                      alt="Sustainable menstrual products"
+                      className="w-full h-full object-cover rounded-2xl shadow-xl group-hover:shadow-2xl transition-all duration-500"
+                    />
+                    
+                    {/* Enhanced Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500">
+                      <div className="absolute bottom-4 lg:bottom-6 left-4 lg:left-6 right-4 lg:right-6 text-white">
+                        <h3 className="text-lg lg:text-xl font-bold mb-1">Premium Collection</h3>
+                        <p className="text-xs lg:text-sm opacity-90">Medical-grade silicone products</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
             
 
         {/* Slide Indicators */}
