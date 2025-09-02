@@ -46,7 +46,7 @@ function App() {
         <Router>
           <div className="min-h-screen bg-white flex flex-col">
             <Header />
-            <main className="flex-1">
+            <main className="flex-1 pt-20">
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/products" element={<Products />} />
