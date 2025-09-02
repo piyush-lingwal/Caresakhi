@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { User, Package, Heart, Settings, LogOut, Edit, Save, X, MapPin, Wallet as WalletIcon, Users, Award, Crown, Star, ShoppingCart } from 'lucide-react';
+import { User, Package, Heart, Settings, LogOut, Edit, Save, X, MapPin, Wallet as WalletIcon, Crown, Star, ShoppingCart, CheckCircle, AlertTriangle } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 const Account = () => {
@@ -10,15 +10,14 @@ const Account = () => {
   const [profileData, setProfileData] = useState({
     name: user?.name || '',
     email: user?.email || '',
-    phone: '',
-    address: '',
-    city: '',
-    state: '',
-    zipCode: ''
+    phone: '123-456-7890',
+    address: '123 Wellness Way',
+    city: 'Mumbai',
+    state: 'Maharashtra',
+    zipCode: '400001'
   });
 
   const getThemeConfig = () => {
-    // Simplified for customer view as per request
     return {
       gradient: 'from-pink-500 to-rose-500',
       bgPattern: 'from-pink-50 to-rose-50',
@@ -30,11 +29,21 @@ const Account = () => {
   };
 
   const theme = getThemeConfig();
-  const ThemeIcon = theme.icon;
 
   const handleSave = () => {
     setIsEditing(false);
   };
+
+  const mockProducts = [
+    { id: 1, name: 'EcoFlow Cup', price: 45, image: 'https://images.pexels.com/photos/7319325/pexels-photo-7319325.jpeg?auto=compress&cs=tinysrgb&w=300', rating: 4.8, category: 'Menstrual Cups' },
+    { id: 2, name: 'ComfortMax Brief', price: 32, image: 'https://images.pexels.com/photos/7262708/pexels-photo-7262708.jpeg?auto=compress&cs=tinysrgb&w=300', rating: 4.9, category: 'Period Underwear' },
+    { id: 3, name: 'Travel Kit Pro', price: 25, image: 'https://images.pexels.com/photos/7319069/pexels-photo-7319069.jpeg?auto=compress&cs=tinysrgb&w=300', rating: 4.7, category: 'Accessories' },
+  ];
+
+   const mockKits = [
+    { id: 101, name: 'All-in-One Complete Kit', price: 149, image: 'https://images.pexels.com/photos/7319070/pexels-photo-7319070.jpeg?auto=compress&cs=tinysrgb&w=300', badge: 'Most Popular' },
+    { id: 102, name: 'Beginner Starter Kit', price: 89, image: 'https://images.pexels.com/photos/7319325/pexels-photo-7319325.jpeg?auto=compress&cs=tinysrgb&w=300', badge: 'Best for Beginners' },
+   ];
 
   const mockOrders = [
     { id: 'ORD-001', date: '2024-01-15', status: 'Delivered', total: 89.99 },
@@ -49,7 +58,7 @@ const Account = () => {
   const tabs = [
     { id: 'profile', name: 'Profile', icon: User },
     { id: 'products', name: 'Products', icon: Package },
-    { id: 'kits', name: 'CareSakhi Kits', icon: Heart },
+    { id: 'kits', name: 'Kits', icon: Heart },
     { id: 'orders', name: 'Orders', icon: Package },
     { id: 'map', name: 'Find Stores', icon: MapPin },
     { id: 'wallet', name: 'Wallet', icon: WalletIcon },
@@ -99,9 +108,47 @@ const Account = () => {
           </div>
         );
       case 'products':
-         return <div>Shop Products Content...</div>;
+         return (
+            <div className="animate-fade-in">
+                <h2 className="text-2xl font-bold text-gray-800 mb-6">Shop Products</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {mockProducts.map(product => (
+                        <div key={product.id} className="bg-white border border-gray-200 rounded-lg overflow-hidden">
+                           <img src={product.image} alt={product.name} className="w-full h-40 object-cover" />
+                           <div className="p-4">
+                               <h3 className="font-semibold">{product.name}</h3>
+                               <p className="text-sm text-gray-500">{product.category}</p>
+                               <div className="flex justify-between items-center mt-4">
+                                   <span className="font-bold text-lg">₹{product.price}</span>
+                                   <button className="bg-pink-600 text-white text-sm px-3 py-1 rounded-full">Add to Cart</button>
+                               </div>
+                           </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+         );
       case 'kits':
-        return <div>CareSakhi Kits Content...</div>;
+        return (
+            <div className="animate-fade-in">
+                <h2 className="text-2xl font-bold text-gray-800 mb-6">CareSakhi Kits</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    {mockKits.map(kit => (
+                        <div key={kit.id} className="bg-white border border-gray-200 rounded-lg overflow-hidden">
+                           <img src={kit.image} alt={kit.name} className="w-full h-40 object-cover" />
+                           <div className="p-4">
+                               <span className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded-full font-semibold">{kit.badge}</span>
+                               <h3 className="font-semibold mt-2">{kit.name}</h3>
+                               <div className="flex justify-between items-center mt-4">
+                                   <span className="font-bold text-lg">₹{kit.price}</span>
+                                   <button className="bg-pink-600 text-white text-sm px-3 py-1 rounded-full">View Kit</button>
+                               </div>
+                           </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        );
       case 'orders':
         return (
             <div className="animate-fade-in">
@@ -126,12 +173,61 @@ const Account = () => {
                 </div>
             </div>
         );
+      case 'map':
+          return (
+              <div className="animate-fade-in text-center">
+                  <MapPin className="w-12 h-12 text-gray-300 mx-auto mb-4"/>
+                  <h2 className="text-2xl font-bold text-gray-800 mb-2">Find Stores</h2>
+                  <p className="text-gray-600">This feature is coming soon!</p>
+              </div>
+          );
       case 'wallet':
-        return <div>Wallet Content...</div>
+        return (
+            <div className="animate-fade-in">
+                <h2 className="text-2xl font-bold text-gray-800 mb-6">My Wallet</h2>
+                <div className="bg-gradient-to-r from-pink-50 to-rose-50 p-6 rounded-lg text-center">
+                    <p className="text-sm text-gray-600">Current Balance</p>
+                    <p className="text-4xl font-bold text-gray-800">₹250.00</p>
+                </div>
+            </div>
+        );
       case 'wishlist':
-        return <div>Wishlist Content...</div>
+        return (
+            <div className="animate-fade-in">
+                <h2 className="text-2xl font-bold text-gray-800 mb-6">My Wishlist</h2>
+                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {mockWishlist.map(item => (
+                        <div key={item.id} className="flex items-center space-x-4 bg-white p-3 rounded-lg border border-gray-200">
+                            <img src={item.image} alt={item.name} className="w-16 h-16 rounded-md object-cover"/>
+                            <div className="flex-1">
+                                <h4 className="font-semibold">{item.name}</h4>
+                                <p className="text-gray-600">₹{item.price}</p>
+                            </div>
+                            <button className="text-pink-500 hover:text-pink-700"><ShoppingCart className="w-5 h-5"/></button>
+                        </div>
+                    ))}
+                 </div>
+            </div>
+        );
       case 'settings':
-         return <div>Settings Content...</div>
+         return (
+            <div className="animate-fade-in">
+                <h2 className="text-2xl font-bold text-gray-800 mb-6">Settings</h2>
+                 <div className="space-y-6">
+                    <div>
+                        <h3 className="font-semibold text-lg mb-2">Notifications</h3>
+                        <div className="space-y-2">
+                            <label className="flex items-center"><input type="checkbox" className="h-4 w-4 text-pink-600 border-gray-300 rounded focus:ring-pink-500" defaultChecked/> <span className="ml-2 text-gray-700">Email Notifications</span></label>
+                            <label className="flex items-center"><input type="checkbox" className="h-4 w-4 text-pink-600 border-gray-300 rounded focus:ring-pink-500"/> <span className="ml-2 text-gray-700">Push Notifications</span></label>
+                        </div>
+                    </div>
+                     <div className="border-t pt-6">
+                        <h3 className="font-semibold text-lg mb-2 text-red-600">Danger Zone</h3>
+                         <button className="bg-red-500 text-white text-sm px-4 py-2 rounded-lg hover:bg-red-600">Delete Account</button>
+                    </div>
+                 </div>
+            </div>
+        );
       default:
         return null;
     }
@@ -220,3 +316,4 @@ const Account = () => {
 };
 
 export default Account;
+
