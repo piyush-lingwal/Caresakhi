@@ -11,28 +11,32 @@ const Education = () => {
       title: 'Environmental Impact',
       stat: '11 billion',
       description: 'disposable products are thrown away annually',
-      details: 'One menstrual cup can replace up to 2,400 tampons and pads over its lifetime, significantly reducing environmental waste.'
+      details: 'One menstrual cup can replace up to 2,400 tampons and pads over its lifetime, significantly reducing environmental waste.',
+      youtubeLink: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' // Replace with your video link
     },
     {
       icon: DollarSign,
       title: 'Cost Savings',
-      stat: '$2,000+',
+      stat: '₹1,50,000+',
       description: 'saved over 10 years with reusable products',
-      details: 'While the initial investment is higher, reusable products pay for themselves within the first year of use.'
+      details: 'While the initial investment is higher, reusable products pay for themselves within the first year of use.',
+      youtubeLink: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' // Replace with your video link
     },
     {
       icon: Clock,
       title: 'Convenience',
       stat: '12 hours',
       description: 'of continuous protection with cups',
-      details: 'Enjoy longer-lasting protection without frequent changes, perfect for busy lifestyles and overnight use.'
+      details: 'Enjoy longer-lasting protection without frequent changes, perfect for busy lifestyles and overnight use.',
+      youtubeLink: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' // Replace with your video link
     },
     {
       icon: Users,
       title: 'Health Benefits',
       stat: '99.9%',
       description: 'of users report increased comfort',
-      details: 'Made from medical-grade materials, our products are safer and more comfortable than traditional options.'
+      details: 'Made from medical-grade materials, our products are safer and more comfortable than traditional options.',
+      youtubeLink: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' // Replace with your video link
     }
   ];
 
@@ -41,19 +45,22 @@ const Education = () => {
       title: 'How Menstrual Cups Work',
       duration: '3 min read',
       preview: 'Learn about the science behind menstrual cups and why they\'re revolutionizing period care.',
-      image: 'https://images.pexels.com/photos/7319070/pexels-photo-7319070.jpeg?auto=compress&cs=tinysrgb&w=400'
+      image: 'https://images.pexels.com/photos/7319070/pexels-photo-7319070.jpeg?auto=compress&cs=tinysrgb&w=400',
+      slug: 'cup-guide'
     },
     {
       title: 'Sizing Guide',
       duration: '2 min read',
       preview: 'Find your perfect fit with our comprehensive sizing guide and recommendations.',
-      image: 'https://images.pexels.com/photos/7262708/pexels-photo-7262708.jpeg?auto=compress&cs=tinysrgb&w=400'
+      image: 'https://images.pexels.com/photos/7262708/pexels-photo-7262708.jpeg?auto=compress&cs=tinysrgb&w=400',
+      slug: 'sizing'
     },
     {
       title: 'Care & Maintenance',
       duration: '4 min read',
       preview: 'Simple steps to keep your reusable products clean, safe, and long-lasting.',
-      image: 'https://images.pexels.com/photos/7319069/pexels-photo-7319069.jpeg?auto=compress&cs=tinysrgb&w=400'
+      image: 'https://images.pexels.com/photos/7319069/pexels-photo-7319069.jpeg?auto=compress&cs=tinysrgb&w=400',
+      slug: 'care'
     }
   ];
 
@@ -131,25 +138,25 @@ const Education = () => {
                   </div>
                 </div>
 
-                <button className="mt-8 bg-emerald-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-emerald-700 transition-colors flex items-center space-x-2">
+                <a href={benefits[activeTab].youtubeLink} target="_blank" rel="noopener noreferrer" className="mt-8 bg-emerald-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-emerald-700 transition-colors flex items-center space-x-2 w-fit">
                   <Play className="w-5 h-5" />
                   <span>Watch Educational Video</span>
-                </button>
+                </a>
               </div>
 
               <div className="relative">
-                <div className="aspect-video bg-white rounded-2xl shadow-xl overflow-hidden">
+                <a href={benefits[activeTab].youtubeLink} target="_blank" rel="noopener noreferrer" className="block aspect-video bg-white rounded-2xl shadow-xl overflow-hidden group">
                   <img
                     src="https://images.pexels.com/photos/7262708/pexels-photo-7262708.jpeg?auto=compress&cs=tinysrgb&w=600"
                     alt="Educational content"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
-                    <button className="bg-white bg-opacity-90 p-6 rounded-full hover:scale-110 transition-transform">
+                    <div className="bg-white bg-opacity-90 p-6 rounded-full transition-transform duration-300 group-hover:scale-110">
                       <Play className="w-8 h-8 text-emerald-600 ml-1" />
-                    </button>
+                    </div>
                   </div>
-                </div>
+                </a>
               </div>
             </div>
           </div>
@@ -164,10 +171,11 @@ const Education = () => {
           </h3>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {educationalContent.map((content, index) => (
-              <div
-                key={index}
-                className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:-translate-y-1"
+            {educationalContent.map((content) => (
+              <Link
+                key={content.slug}
+                to={`/education/${content.slug}`}
+                className="group block bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:-translate-y-1"
               >
                 <div className="relative overflow-hidden">
                   <img
@@ -184,22 +192,17 @@ const Education = () => {
                   <h4 className="text-xl font-semibold text-gray-800 mb-3 group-hover:text-emerald-600 transition-colors">
                     {content.title}
                   </h4>
-                  <p className="text-gray-600 mb-4 leading-relaxed">
+                  <p className="text-gray-600 mb-4 leading-relaxed line-clamp-2">
                     {content.preview}
                   </p>
-                  <Link
-                    to={
-                      content.title === 'How Menstrual Cups Work' ? '/education/cup-guide' :
-                      content.title === 'Sizing Guide' ? '/education/sizing' :
-                      '/education/care'
-                    }
-                    className="flex items-center space-x-2 text-emerald-600 font-semibold hover:space-x-3 transition-all"
+                  <div
+                    className="flex items-center space-x-2 text-emerald-600 font-semibold group-hover:space-x-3 transition-all"
                   >
                     <span>Read More</span>
                     <ChevronRight className="w-4 h-4" />
-                  </Link>
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -209,3 +212,4 @@ const Education = () => {
 };
 
 export default Education;
+
