@@ -50,7 +50,7 @@ const Hero = () => {
   const currentContent = heroContent[currentSlide];
 
   return (
-    <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-pink-50 via-white to-purple-50">
+    <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-pink-50 via-white to-purple-50 pt-24">
       {/* Simplified Background */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute w-64 h-64 bg-gradient-to-r from-pink-300 to-purple-300 rounded-full blur-3xl animate-pulse top-20 left-10"></div>
@@ -59,9 +59,9 @@ const Hero = () => {
 
       <div className="container mx-auto px-4 py-8 lg:py-16 relative z-10">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[60vh] lg:min-h-[50vh]">
-            {/* Content Section - Equal Width */}
-            <div className="text-center lg:text-left space-y-6 lg:space-y-8 order-2 lg:order-1">
+          <div className="grid lg:grid-cols-1 gap-8 lg:gap-12 items-center min-h-[60vh] lg:min-h-[50vh]">
+            {/* Content Section */}
+            <div className="text-center lg:text-left space-y-6 lg:space-y-8">
               {/* Animated Badge */}
               <div className={`inline-flex items-center space-x-2 lg:space-x-3 bg-white/90 backdrop-blur-lg text-pink-800 px-4 lg:px-6 py-2 lg:py-3 rounded-full text-xs lg:text-sm font-semibold shadow-lg border border-pink-200 transition-all duration-1000 relative z-20 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                 <div className="flex items-center space-x-2">
@@ -101,7 +101,7 @@ const Hero = () => {
               <div className={`flex flex-col sm:flex-row gap-3 lg:gap-4 justify-center lg:justify-start transition-all duration-1000 delay-700 ${isVisible ? 'animate-slide-up' : 'opacity-0 translate-y-10'}`}>
                 <Link
                   to="/products"
-                  className="group relative bg-gradient-to-r from-pink-600 via-purple-600 to-pink-600 bg-300% animate-gradient text-white px-6 lg:px-8 py-3 lg:py-4 rounded-full font-bold text-base lg:text-lg transition-all duration-500 hover:shadow-xl hover:scale-105 transform inline-flex items-center justify-center overflow-hidden"   this is my web application hero part  
+                  className="group relative bg-gradient-to-r from-pink-600 via-purple-600 to-pink-600 bg-300% animate-gradient text-white px-6 lg:px-8 py-3 lg:py-4 rounded-full font-bold text-base lg:text-lg transition-all duration-500 hover:shadow-xl hover:scale-105 transform inline-flex items-center justify-center overflow-hidden"
                 >
                   <span className="relative flex items-center justify-center space-x-2">
                     <span>{currentContent.cta}</span>
@@ -151,35 +151,8 @@ const Hero = () => {
                 })}
               </div>
             </div>
-
-            {/* Image Section - Equal Width */}
-            <div className="relative order-1 lg:order-2">
-              {/* Main Product Showcase */}
-              <div className="relative z-10 transform hover:scale-105 transition-transform duration-700 mx-auto max-w-md lg:max-w-none">
-                <div className="aspect-square bg-gradient-to-br from-pink-100 via-white to-purple-100 rounded-3xl p-4 lg:p-8 shadow-2xl backdrop-blur-lg border border-white/50 relative overflow-hidden">
-                  {/* Product Image */}
-                  <div className="relative z-10 group">
-                    <img 
-                      src="https://images.pexels.com/photos/7319070/pexels-photo-7319070.jpeg?auto=compress&cs=tinysrgb&w=600"
-                      alt="Sustainable menstrual products"
-                      className="w-full h-full object-cover rounded-2xl shadow-xl group-hover:shadow-2xl transition-all duration-500"
-                    />
-                    
-                    {/* Enhanced Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500">
-                      <div className="absolute bottom-4 lg:bottom-6 left-4 lg:left-6 right-4 lg:right-6 text-white">
-                        <h3 className="text-lg lg:text-xl font-bold mb-1">Premium Collection</h3>
-                        <p className="text-xs lg:text-sm opacity-90">Medical-grade silicone products</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
-
-            
 
         {/* Slide Indicators */}
         <div className="flex justify-center space-x-3 mt-8 lg:mt-12">
