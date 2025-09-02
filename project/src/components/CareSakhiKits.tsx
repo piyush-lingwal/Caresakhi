@@ -62,7 +62,8 @@ const CareSakhiKits = () => {
   ];
 
   const handleAddToCart = (kit, e) => {
-    e.stopPropagation(); // Prevents link navigation when adding to cart
+    e.preventDefault(); // Prevents the Link's default navigation action
+    e.stopPropagation(); // Stops the event from bubbling up to the Link component
     addItem({
       id: kit.id,
       name: kit.name,
@@ -161,4 +162,3 @@ const CareSakhiKits = () => {
 };
 
 export default CareSakhiKits;
-
