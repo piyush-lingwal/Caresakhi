@@ -221,12 +221,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Enhanced Scroll Indicator */}
-      <div className="absolute bottom-4 lg:bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce group cursor-pointer">
-        <div className="bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
-          <ChevronDown className={`w-6 h-6 text-gray-600 group-hover:bg-gradient-to-r group-hover:${currentContent.theme} group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300`} />
-        </div>
-      </div>
+     
     </section>
   );
 };
