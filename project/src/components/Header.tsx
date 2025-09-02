@@ -37,12 +37,12 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav role="navigation" className="hidden lg:flex items-center space-x-8">
+          <nav role="navigation" className="hidden lg:flex items-center space-x-2">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
-                className={`nav-link-desktop font-medium text-base px-2 py-1 rounded-md transition-transform duration-150 ease-in-out active:scale-95 focus-visible:bg-pink-50 ${isActive(item.href) ? 'active' : ''}`}
+                className={`nav-link-desktop font-medium text-base px-4 py-2 rounded-full transition-all duration-150 ease-in-out active:scale-95 focus-visible:bg-pink-100 ${isActive(item.href) ? 'active' : ''}`}
               >
                 {item.name}
               </Link>
@@ -50,25 +50,26 @@ const Header = () => {
           </nav>
 
           {/* Right Side Actions */}
-          <div className="flex items-center space-x-2">
-            <div className="hidden lg:flex items-center space-x-2">
+          <div className="flex items-center space-x-1 sm:space-x-2">
+            <div className="hidden md:flex items-center space-x-2">
               <a
                 href="/app-release.apk"
                 download="CareSakhi-App.apk"
-                className="flex items-center space-x-2 bg-emerald-600 text-white px-4 py-2 rounded-full font-medium text-sm hover:bg-emerald-700 transition-all duration-300"
+                className="flex items-center space-x-2 bg-emerald-600 text-white px-3 py-2 rounded-full font-medium text-sm hover:bg-emerald-700 transition-all duration-300"
               >
                 <Download className="w-4 h-4" />
                 <span>Get App</span>
               </a>
-              <Link to="/cart" aria-label="Cart" className="relative p-2 text-gray-700 hover:text-pink-600 transition-colors rounded-full hover:bg-pink-50">
-                <ShoppingCart className="w-5 h-5" />
-                {state.itemCount > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-pink-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-medium">
-                    {state.itemCount}
-                  </span>
-                )}
-              </Link>
             </div>
+            
+            <Link to="/cart" aria-label="Cart" className="relative p-2 text-gray-700 hover:text-pink-600 transition-colors rounded-full hover:bg-pink-50">
+              <ShoppingCart className="w-5 h-5" />
+              {state.itemCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-pink-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-medium">
+                  {state.itemCount}
+                </span>
+              )}
+            </Link>
 
             {/* Desktop User/Auth Buttons */}
             <div className="hidden lg:flex items-center">
@@ -93,8 +94,8 @@ const Header = () => {
                   )}
                 </div>
               ) : (
-                <div className="flex items-center space-x-2">
-                  <Link to="/login" className="text-gray-700 font-medium text-base px-3 py-2 rounded-lg">Login</Link>
+                <div className="flex items-center space-x-1">
+                  <Link to="/login" className="text-gray-700 font-medium text-base px-3 py-2 rounded-full hover:bg-gray-100">Login</Link>
                   <Link to="/register" className="bg-pink-600 text-white px-4 py-2 rounded-full font-medium text-base hover:bg-pink-700">Sign Up</Link>
                 </div>
               )}
@@ -125,19 +126,19 @@ const Header = () => {
                   {item.name}
                 </Link>
               ))}
-              <div className="border-t border-gray-100 pt-4 mt-4 space-y-2">
+              <div className="border-t border-gray-100 pt-4 mt-4 space-y-3">
                 {user ? (
                   <>
                     <Link to="/account" onClick={() => setIsMenuOpen(false)} className="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg">My Account</Link>
                     <button onClick={() => { logout(); setIsMenuOpen(false); }} className="block w-full text-left px-4 py-3 text-red-600 hover:bg-red-50 rounded-lg">Logout</button>
                   </>
                 ) : (
-                  <>
-                    <Link to="/login" onClick={() => setIsMenuOpen(false)} className="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg">Login</Link>
-                    <Link to="/register" onClick={() => setIsMenuOpen(false)} className="block px-4 py-3 bg-pink-600 text-white rounded-lg font-medium text-center">Sign Up</Link>
-                  </>
+                  <div className="flex items-center space-x-2">
+                    <Link to="/login" onClick={() => setIsMenuOpen(false)} className="flex-1 text-center px-4 py-3 text-gray-700 bg-gray-100 rounded-lg">Login</Link>
+                    <Link to="/register" onClick={() => setIsMenuOpen(false)} className="flex-1 text-center px-4 py-3 bg-pink-600 text-white rounded-lg font-medium">Sign Up</Link>
+                  </div>
                 )}
-                <a href="/app-release.apk" download="CareSakhi-App.apk" onClick={() => setIsMenuOpen(false)} className="flex items-center justify-center space-x-2 mt-4 bg-emerald-600 text-white px-4 py-3 rounded-lg font-medium"><Download className="w-5 h-5" /> <span>Download App</span></a>
+                <a href="/app-release.apk" download="CareSakhi-App.apk" onClick={() => setIsMenuOpen(false)} className="flex items-center justify-center space-x-2 bg-emerald-600 text-white px-4 py-3 rounded-lg font-medium"><Download className="w-5 h-5" /> <span>Download App</span></a>
               </div>
             </nav>
           </div>
