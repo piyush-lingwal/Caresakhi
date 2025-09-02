@@ -42,7 +42,7 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className={`nav-link-desktop font-medium text-base ${isActive(item.href) ? 'active' : ''}`}
+                className={`nav-link-desktop font-medium text-base rounded-md focus-visible:ring-2 focus-visible:ring-pink-500 focus-visible:ring-offset-2 ${isActive(item.href) ? 'active' : ''}`}
               >
                 {item.name}
               </Link>
@@ -58,7 +58,7 @@ const Header = () => {
                 className="flex items-center space-x-2 bg-emerald-600 text-white px-4 py-2 rounded-full font-medium text-sm hover:bg-emerald-700 transition-all duration-300"
               >
                 <Download className="w-4 h-4" />
-                <span>Download App</span>
+                <span>Get App</span>
               </a>
               <Link to="/cart" aria-label="Cart" className="relative p-2 text-gray-700 hover:text-pink-600 transition-colors rounded-full hover:bg-pink-50">
                 <ShoppingCart className="w-5 h-5" />
@@ -70,33 +70,37 @@ const Header = () => {
               </Link>
             </div>
 
-            {user ? (
-              <div className="relative hidden lg:block">
-                <button
-                  aria-label="User Menu"
-                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                  className="flex items-center space-x-2 p-2 text-gray-700 rounded-lg"
-                >
-                  <User className="w-5 h-5" />
-                  <span className="font-medium text-base">{user.name}</span>
-                </button>
-                {isDropdownOpen && (
-                  <div className="absolute right-0 top-full mt-2 w-48 bg-white rounded-xl shadow-2xl border border-gray-100 animate-fade-in">
-                    <div className="py-2">
-                      <Link to="/account" className="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">My Account</Link>
-                      <Link to="/wallet" className="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Wallet</Link>
-                      <button onClick={logout} className="block w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50">Logout</button>
+            {/* Desktop User/Auth Buttons */}
+            <div className="hidden lg:flex items-center">
+              {user ? (
+                <div className="relative">
+                  <button
+                    aria-label="User Menu"
+                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                    className="flex items-center space-x-2 p-2 text-gray-700 rounded-lg hover:bg-gray-100"
+                  >
+                    <User className="w-5 h-5" />
+                    <span className="font-medium text-base">{user.name}</span>
+                  </button>
+                  {isDropdownOpen && (
+                    <div className="absolute right-0 top-full mt-2 w-48 bg-white rounded-xl shadow-2xl border border-gray-100 animate-fade-in">
+                      <div className="py-2">
+                        <Link to="/account" className="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">My Account</Link>
+                        <Link to="/wallet" className="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-600">Wallet</Link>
+                        <button onClick={logout} className="block w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50">Logout</button>
+                      </div>
                     </div>
-                  </div>
-                )}
-              </div>
-            ) : (
-              <div className="hidden lg:flex items-center space-x-2">
-                <Link to="/login" className="text-gray-700 font-medium text-base px-3 py-2 rounded-lg">Login</Link>
-                <Link to="/register" className="bg-pink-600 text-white px-4 py-2 rounded-full font-medium text-base hover:bg-pink-700">Sign Up</Link>
-              </div>
-            )}
-
+                  )}
+                </div>
+              ) : (
+                <div className="flex items-center space-x-2">
+                  <Link to="/login" className="text-gray-700 font-medium text-base px-3 py-2 rounded-lg">Login</Link>
+                  <Link to="/register" className="bg-pink-600 text-white px-4 py-2 rounded-full font-medium text-base hover:bg-pink-700">Sign Up</Link>
+                </div>
+              )}
+            </div>
+            
+            {/* Mobile Menu Button */}
             <button
               aria-label="Toggle Mobile Menu"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -107,7 +111,7 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu Panel */}
         {isMenuOpen && (
           <div className="lg:hidden absolute top-20 left-0 right-0 border-t border-gray-100 py-4 bg-white shadow-lg animate-fade-in">
             <nav className="space-y-2 px-4">
@@ -116,7 +120,7 @@ const Header = () => {
                   key={item.name}
                   to={item.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`block px-4 py-3 rounded-lg font-medium ${isActive(item.href) ? 'bg-pink-50 text-pink-600' : 'text-gray-700'}`}
+                  className={`block px-4 py-3 rounded-lg font-medium ${isActive(item.href) ? 'bg-pink-50 text-pink-600' : 'text-gray-700 hover:bg-gray-100'}`}
                 >
                   {item.name}
                 </Link>
@@ -124,12 +128,12 @@ const Header = () => {
               <div className="border-t border-gray-100 pt-4 mt-4 space-y-2">
                 {user ? (
                   <>
-                    <Link to="/account" onClick={() => setIsMenuOpen(false)} className="block px-4 py-3 text-gray-700">My Account</Link>
-                    <button onClick={() => { logout(); setIsMenuOpen(false); }} className="block w-full text-left px-4 py-3 text-red-600">Logout</button>
+                    <Link to="/account" onClick={() => setIsMenuOpen(false)} className="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg">My Account</Link>
+                    <button onClick={() => { logout(); setIsMenuOpen(false); }} className="block w-full text-left px-4 py-3 text-red-600 hover:bg-red-50 rounded-lg">Logout</button>
                   </>
                 ) : (
                   <>
-                    <Link to="/login" onClick={() => setIsMenuOpen(false)} className="block px-4 py-3 text-gray-700">Login</Link>
+                    <Link to="/login" onClick={() => setIsMenuOpen(false)} className="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg">Login</Link>
                     <Link to="/register" onClick={() => setIsMenuOpen(false)} className="block px-4 py-3 bg-pink-600 text-white rounded-lg font-medium text-center">Sign Up</Link>
                   </>
                 )}
