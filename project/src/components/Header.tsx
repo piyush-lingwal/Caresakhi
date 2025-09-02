@@ -58,7 +58,7 @@ const Header = () => {
                 className="flex items-center space-x-2 bg-emerald-600 text-white px-4 py-2 rounded-full font-medium text-sm hover:bg-emerald-700 transition-all duration-300"
               >
                 <Download className="w-4 h-4" />
-                <span>Get App</span>
+                <span>Download App</span>
               </a>
               <Link to="/cart" aria-label="Cart" className="relative p-2 text-gray-700 hover:text-pink-600 transition-colors rounded-full hover:bg-pink-50">
                 <ShoppingCart className="w-5 h-5" />
