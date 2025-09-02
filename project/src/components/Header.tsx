@@ -71,7 +71,7 @@ const Header = () => {
               className="flex items-center space-x-1 lg:space-x-2 bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-2 lg:px-4 py-2 rounded-full font-medium text-xs lg:text-sm hover:from-emerald-700 hover:to-teal-700 transition-all duration-500 transform hover:scale-105 hover:shadow-xl hover:shadow-emerald-200 hover:rotate-1"
             >
               <Download className="w-4 h-4" />
-              <span className="hidden sm:inline">Download App</span>
+              <span className="hidden sm:inline">Get App</span>
               <span className="sm:hidden">App</span>
             </a>
 
