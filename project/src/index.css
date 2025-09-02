@@ -345,9 +345,11 @@ textarea:focus {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
+/* ... keep existing styles above this line ... */
+
 @layer components {
   .nav-link-desktop {
-    @apply relative text-gray-700 transition-colors duration-300 hover:text-pink-600;
+    @apply relative text-gray-700 transition-colors duration-300 hover:text-pink-600 focus:outline-none focus-visible:text-pink-600;
   }
 
   .nav-link-desktop::after {
@@ -355,12 +357,21 @@ textarea:focus {
     transform-origin: center;
   }
 
-  .nav-link-desktop:hover::after,
-  .nav-link-desktop.active::after {
+  .nav-link-desktop:hover::after {
     @apply scale-x-100;
   }
 
   .nav-link-desktop.active {
     @apply text-pink-600;
   }
+}
+
+/* Custom focus styles for accessibility */
+input:focus,
+textarea:focus {
+  outline: 2px solid #EC4899;
+  outline-offset: 2px;
+}
+
+/* ... keep other styles below this line ... */
 }
