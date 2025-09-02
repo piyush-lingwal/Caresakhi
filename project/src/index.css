@@ -344,3 +344,23 @@ textarea:focus {
   transform: translateY(-5px) scale(1.02);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
+
+@layer components {
+  .nav-link-desktop {
+    @apply relative text-gray-700 transition-colors duration-300 hover:text-pink-600;
+  }
+
+  .nav-link-desktop::after {
+    @apply content-[''] absolute bottom-[-4px] left-0 w-full h-[2px] bg-pink-600 transform scale-x-0 transition-transform duration-300 ease-out;
+    transform-origin: center;
+  }
+
+  .nav-link-desktop:hover::after,
+  .nav-link-desktop.active::after {
+    @apply scale-x-100;
+  }
+
+  .nav-link-desktop.active {
+    @apply text-pink-600;
+  }
+}
