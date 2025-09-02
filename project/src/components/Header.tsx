@@ -42,7 +42,7 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className={`nav-link-desktop font-medium text-base px-4 py-2 rounded-full transition-all duration-150 ease-in-out active:scale-95 focus-visible:bg-pink-100 ${isActive(item.href) ? 'active' : ''}`}
+                className={`nav-link-desktop font-medium text-base px-4 py-2 rounded-full transition-all duration-150 ease-in-out active:scale-95 focus-visible:bg-pink-100 ${isActive(item.href) ? 'active bg-pink-50' : ''}`}
               >
                 {item.name}
               </Link>
@@ -52,14 +52,14 @@ const Header = () => {
           {/* Right Side Actions */}
           <div className="flex items-center space-x-1 sm:space-x-2">
             <div className="hidden md:flex items-center space-x-2">
-              <a
-                href="/app-release.apk"
-                download="CareSakhi-App.apk"
-                className="flex items-center space-x-2 bg-emerald-600 text-white px-3 py-2 rounded-full font-medium text-sm hover:bg-emerald-700 transition-all duration-300"
-              >
-                <Download className="w-4 h-4" />
-                <span>Get App</span>
-              </a>
+                <a
+                    href="/app-release.apk"
+                    download="CareSakhi-App.apk"
+                    className="flex items-center space-x-2 bg-emerald-600 text-white px-3 py-2 rounded-full font-medium text-sm hover:bg-emerald-700 transition-all duration-300"
+                >
+                    <Download className="w-4 h-4" />
+                    <span className="hidden sm:inline">Get App</span>
+                </a>
             </div>
             
             <Link to="/cart" aria-label="Cart" className="relative p-2 text-gray-700 hover:text-pink-600 transition-colors rounded-full hover:bg-pink-50">
