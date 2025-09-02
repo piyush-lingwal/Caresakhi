@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { ShoppingCart, Star, Gift, Package, Sparkles } from 'lucide-react';
+import { ShoppingCart, Star, Package, Sparkles } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 
 const CareSakhiKits = () => {
@@ -15,7 +14,7 @@ const CareSakhiKits = () => {
       rating: 4.9,
       reviews: 2156,
       image: 'https://images.pexels.com/photos/7319070/pexels-photo-7319070.jpeg?auto=compress&cs=tinysrgb&w=400',
-      description: 'Everything you need for a complete sustainable period experience',
+      description: 'Everything you need for a complete sustainable period experience.',
       includes: ['2 Menstrual Cups', '3 Period Underwear', 'Travel Kit', 'Care Guide'],
       badge: 'Most Popular',
       gradient: 'from-pink-500 to-purple-500'
@@ -28,10 +27,36 @@ const CareSakhiKits = () => {
       rating: 4.8,
       reviews: 1834,
       image: 'https://images.pexels.com/photos/7319325/pexels-photo-7319325.jpeg?auto=compress&cs=tinysrgb&w=400',
-      description: 'Perfect introduction to sustainable period care',
+      description: 'The perfect introduction to sustainable period care.',
       includes: ['1 Menstrual Cup', '2 Period Underwear', 'Instruction Guide'],
       badge: 'Best for Beginners',
       gradient: 'from-green-500 to-emerald-500'
+    },
+    {
+        id: 103,
+        name: 'Travel Essentials Kit',
+        price: 75,
+        originalPrice: 95,
+        rating: 4.7,
+        reviews: 1245,
+        image: 'https://images.pexels.com/photos/7319069/pexels-photo-7319069.jpeg?auto=compress&cs=tinysrgb&w=400',
+        description: 'A compact kit designed for women on the go.',
+        includes: ['1 Menstrual Cup', 'Sterilizer', 'Travel Pouch', 'Cleaning Tablets'],
+        badge: 'Travel Ready',
+        gradient: 'from-blue-500 to-cyan-500'
+    },
+    {
+        id: 104,
+        name: 'Comfort Plus Kit',
+        price: 125,
+        originalPrice: 160,
+        rating: 4.9,
+        reviews: 987,
+        image: 'https://images.pexels.com/photos/7262708/pexels-photo-7262708.jpeg?auto=compress&cs=tinysrgb&w=400',
+        description: 'Maximum comfort with our premium materials.',
+        includes: ['1 Premium Cup', '4 Comfort Briefs', 'Wellness Guide'],
+        badge: 'Premium',
+        gradient: 'from-purple-500 to-indigo-500'
     }
   ];
 
@@ -81,7 +106,10 @@ const CareSakhiKits = () => {
                 <h3 className="text-2xl font-bold text-gray-800 mb-3">{kit.name}</h3>
                 <p className="text-gray-600 mb-4 h-12">{kit.description}</p>
                 <div className="mb-6">
-                  <h4 className="font-semibold text-gray-800 mb-2">What's Included:</h4>
+                  <h4 className="font-semibold text-gray-800 mb-2 flex items-center">
+                    <Package className="w-4 h-4 mr-2 text-emerald-600" />
+                    What's Included:
+                  </h4>
                   <ul className="space-y-1">
                     {kit.includes.map((item, index) => (
                       <li key={index} className="flex items-center space-x-2 text-sm text-gray-600">
