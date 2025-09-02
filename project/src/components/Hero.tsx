@@ -50,113 +50,96 @@ const Hero = () => {
   const currentContent = heroContent[currentSlide];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-pink-50 via-white to-purple-50">
-      {/* Simplified Background */}
+    <section className="relative h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden bg-gradient-to-br from-pink-50 via-white to-purple-50">
+      {/* Background elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute w-64 h-64 bg-gradient-to-r from-pink-300 to-purple-300 rounded-full blur-3xl animate-pulse top-20 left-10"></div>
         <div className="absolute w-48 h-48 bg-gradient-to-r from-purple-300 to-blue-300 rounded-full blur-3xl animate-pulse bottom-20 right-10" style={{ animationDelay: '2s' }}></div>
       </div>
 
-      <div className="container mx-auto px-4 py-8 pt-24 lg:pt-8 relative z-10">
+      <div className="container mx-auto px-4 py-8 relative z-10">
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-1 items-center">
             {/* Content Section */}
-            <div className="text-center space-y-5 lg:space-y-6">
-              {/* Animated Badge */}
-              <div className={`inline-flex items-center space-x-2 lg:space-x-3 bg-white/90 backdrop-blur-lg text-pink-800 px-4 py-2 rounded-full text-xs lg:text-sm font-semibold shadow-lg border border-pink-200 transition-all duration-1000 relative z-20 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                <div className="flex items-center space-x-2">
-                  <div className="flex -space-x-2">
-                    {testimonialCards.map((testimonial, i) => (
-                      <img
-                        key={i}
-                        src={testimonial.avatar}
-                        alt={testimonial.name}
-                        className="w-5 h-5 lg:w-6 lg:h-6 rounded-full border-2 border-white shadow-md"
-                      />
-                    ))}
-                  </div>
-                  <Sparkles className="w-4 h-4 lg:w-5 lg:h-5 text-pink-600 animate-pulse" />
-                </div>
-                <span className="whitespace-nowrap">Trusted by 50,000+ Women</span>
-              </div>
+            <div className="text-center space-y-4 md:space-y-6">
               
               {/* Dynamic Title */}
-              <div className="space-y-2 lg:space-y-3">
-                <h1 className={`text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight transition-all duration-1000 ${isVisible ? 'animate-fade-in' : 'opacity-0 translate-y-10'}`}>
+              <div className="space-y-2 md:space-y-3">
+                <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight transition-all duration-1000 ${isVisible ? 'animate-fade-in' : 'opacity-0 translate-y-10'}`}>
                   <span className="bg-gradient-to-r from-pink-600 via-purple-600 to-pink-600 bg-clip-text text-transparent bg-300% animate-gradient">
                     {currentContent.title}
                   </span>
                 </h1>
                 
-                <p className={`text-base lg:text-lg font-semibold text-gray-700 transition-all duration-1000 delay-300 ${isVisible ? 'animate-slide-up' : 'opacity-0 translate-y-10'}`}>
+                <p className={`text-lg md:text-xl font-semibold text-gray-700 transition-all duration-1000 delay-300 ${isVisible ? 'animate-slide-up' : 'opacity-0 translate-y-10'}`}>
                   {currentContent.subtitle}
-                </p>
-                
-                <p className={`text-sm lg:text-base text-gray-600 max-w-2xl mx-auto leading-relaxed transition-all duration-1000 delay-500 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
-                  {currentContent.description}
                 </p>
               </div>
 
+              {/* Animated Badge */}
+              <div className="flex justify-center">
+                <div className={`inline-flex items-center space-x-2 bg-white/90 backdrop-blur-lg text-pink-800 px-4 py-2 rounded-full text-sm font-semibold shadow-lg border border-pink-200 transition-all duration-1000 relative z-20 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                  <div className="flex items-center space-x-2">
+                    <div className="flex -space-x-2">
+                      {testimonialCards.map((testimonial, i) => (
+                        <img
+                          key={i}
+                          src={testimonial.avatar}
+                          alt={testimonial.name}
+                          className="w-6 h-6 rounded-full border-2 border-white shadow-md"
+                        />
+                      ))}
+                    </div>
+                    <Sparkles className="w-5 h-5 text-pink-600 animate-pulse" />
+                  </div>
+                  <span className="whitespace-nowrap">Trusted by 50,000+ Women</span>
+                </div>
+              </div>
+
+              <p className={`text-base text-gray-600 max-w-2xl mx-auto leading-relaxed transition-all duration-1000 delay-500 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
+                {currentContent.description}
+              </p>
+
               {/* CTA Buttons */}
-              <div className={`flex flex-col sm:flex-row gap-3 justify-center transition-all duration-1000 delay-700 ${isVisible ? 'animate-slide-up' : 'opacity-0 translate-y-10'}`}>
+              <div className={`flex flex-col sm:flex-row gap-3 justify-center pt-2 transition-all duration-1000 delay-700 ${isVisible ? 'animate-slide-up' : 'opacity-0 translate-y-10'}`}>
                 <Link
                   to="/products"
-                  className="group relative bg-gradient-to-r from-pink-600 via-purple-600 to-pink-600 bg-300% animate-gradient text-white px-6 py-3 rounded-full font-bold text-base transition-all duration-500 hover:shadow-xl hover:scale-105 transform inline-flex items-center justify-center overflow-hidden"
+                  className="group relative bg-gradient-to-r from-pink-600 via-purple-600 to-pink-600 bg-300% animate-gradient text-white px-8 py-3 rounded-full font-bold text-lg transition-all duration-500 hover:shadow-xl hover:scale-105 transform inline-flex items-center justify-center overflow-hidden"
                 >
-                  Shop Now
+                  {currentContent.cta}
                 </Link>
                 
                 <Link
                   to="/period-tracker"
-                  className="group border-2 border-gray-300 text-gray-700 px-6 py-3 rounded-full font-bold text-base hover:border-emerald-500 hover:text-emerald-600 hover:bg-emerald-50 transition-all duration-500 hover:shadow-lg hover:scale-105 inline-flex items-center justify-center"
+                  className="group border-2 border-gray-300 text-gray-700 px-8 py-3 rounded-full font-bold text-lg hover:border-emerald-500 hover:text-emerald-600 hover:bg-emerald-50 transition-all duration-500 hover:shadow-lg hover:scale-105 inline-flex items-center justify-center"
                 >
-                  Track Period
+                  {currentContent.ctaSecondary}
                 </Link>
               </div>
 
               {/* Dynamic Stats */}
-              <div className={`flex flex-wrap justify-center gap-4 lg:gap-6 pt-3 lg:pt-4 transition-all duration-1000 delay-900 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
+              <div className={`flex flex-wrap justify-center gap-6 pt-4 transition-all duration-1000 delay-900 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
                 {Object.entries(currentContent.stats).map(([key, value]) => (
                   <div key={key} className="text-center group hover:scale-110 transition-transform duration-300">
-                    <div className="text-xl lg:text-2xl font-bold text-pink-600 mb-1 group-hover:text-purple-600 transition-colors">
+                    <div className="text-2xl lg:text-3xl font-bold text-pink-600 mb-1 group-hover:text-purple-600 transition-colors">
                       {value}
                     </div>
-                    <div className="text-gray-600 font-medium capitalize text-xs">
+                    <div className="text-gray-600 font-medium capitalize text-sm">
                       {key.replace(/([A-Z])/g, ' $1').trim()}
                     </div>
                   </div>
                 ))}
               </div>
 
-              {/* Key Benefits */}
-              <div className={`flex flex-wrap justify-center gap-3 lg:gap-6 pt-3 lg:pt-4 transition-all duration-1000 delay-1100 ${isVisible ? 'animate-slide-up' : 'opacity-0 translate-y-10'}`}>
-                {[
-                  { icon: Leaf, text: 'Eco-Friendly', color: 'text-green-500' },
-                  { icon: Shield, text: 'Medical Grade', color: 'text-blue-500' },
-                  { icon: Sparkles, text: '12hr Protection', color: 'text-purple-500' },
-                  { icon: Award, text: 'Award Winning', color: 'text-orange-500' }
-                ].map((benefit) => {
-                  const IconComponent = benefit.icon;
-                  return (
-                    <div key={benefit.text} className="flex items-center space-x-1 lg:space-x-2 text-gray-600 group hover:scale-110 transition-all duration-300">
-                      <div className="p-2 bg-white/80 backdrop-blur-sm rounded-full shadow-md group-hover:shadow-lg transition-shadow">
-                        <IconComponent className={`w-4 lg:w-5 h-4 lg:h-5 ${benefit.color} group-hover:scale-125 transition-transform duration-300`} />
-                      </div>
-                      <span className="font-semibold group-hover:text-gray-800 transition-colors text-xs lg:text-sm">{benefit.text}</span>
-                    </div>
-                  );
-                })}
-              </div>
-
               {/* Slide Indicators */}
-              <div className="flex justify-center space-x-3 pt-6 lg:pt-8">
+              <div className="flex justify-center space-x-3 pt-4 lg:pt-6">
                 {heroContent.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentSlide(index)}
                     className={`transition-all duration-500 hover:scale-125 ${
                       index === currentSlide
-                        ? 'w-6 h-2 bg-gradient-to-r from-pink-600 to-purple-600 rounded-full shadow-lg'
+                        ? 'w-8 h-2 bg-gradient-to-r from-pink-600 to-purple-600 rounded-full shadow-lg'
                         : 'w-2 h-2 bg-gray-300 rounded-full hover:bg-gray-400'
                     }`}
                   />
