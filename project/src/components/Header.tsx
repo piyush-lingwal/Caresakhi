@@ -27,9 +27,9 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-white bg-opacity-95 backdrop-blur-md shadow-lg z-50 border-b border-gray-100">
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between py-3 lg:py-4 min-h-[72px] lg:min-h-[88px]">
+    <header className="fixed top-0 left-0 right-0 bg-white bg-opacity-95 backdrop-blur-md shadow-lg z-50 border-b border-gray-100 h-24">
+      <div className="container mx-auto px-4 h-full">
+        <div className="flex items-center justify-between h-full">
           
           {/* Logo */}
           <Link to="/" className="flex items-center group ml-2 lg:ml-8 flex-shrink-0">
