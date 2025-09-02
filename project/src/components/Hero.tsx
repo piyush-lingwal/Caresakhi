@@ -50,7 +50,7 @@ const Hero = () => {
   const currentContent = heroContent[currentSlide];
 
   return (
-    <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-pink-50 via-white to-purple-50 pt-24">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-pink-50 via-white to-purple-50">
       {/* Simplified Background */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute w-64 h-64 bg-gradient-to-r from-pink-300 to-purple-300 rounded-full blur-3xl animate-pulse top-20 left-10"></div>
@@ -59,9 +59,9 @@ const Hero = () => {
 
       <div className="container mx-auto px-4 py-8 lg:py-16 relative z-10">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-1 gap-8 lg:gap-12 items-center min-h-[60vh] lg:min-h-[50vh]">
+          <div className="grid lg:grid-cols-1 gap-8 lg:gap-12 items-center">
             {/* Content Section */}
-            <div className="text-center lg:text-left space-y-6 lg:space-y-8">
+            <div className="text-center space-y-6 lg:space-y-8">
               {/* Animated Badge */}
               <div className={`inline-flex items-center space-x-2 lg:space-x-3 bg-white/90 backdrop-blur-lg text-pink-800 px-4 lg:px-6 py-2 lg:py-3 rounded-full text-xs lg:text-sm font-semibold shadow-lg border border-pink-200 transition-all duration-1000 relative z-20 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                 <div className="flex items-center space-x-2">
@@ -92,13 +92,13 @@ const Hero = () => {
                   {currentContent.subtitle}
                 </p>
                 
-                <p className={`text-sm sm:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed transition-all duration-1000 delay-500 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
+                <p className={`text-sm sm:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed transition-all duration-1000 delay-500 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
                   {currentContent.description}
                 </p>
               </div>
 
               {/* CTA Buttons */}
-              <div className={`flex flex-col sm:flex-row gap-3 lg:gap-4 justify-center lg:justify-start transition-all duration-1000 delay-700 ${isVisible ? 'animate-slide-up' : 'opacity-0 translate-y-10'}`}>
+              <div className={`flex flex-col sm:flex-row gap-3 lg:gap-4 justify-center transition-all duration-1000 delay-700 ${isVisible ? 'animate-slide-up' : 'opacity-0 translate-y-10'}`}>
                 <Link
                   to="/products"
                   className="group relative bg-gradient-to-r from-pink-600 via-purple-600 to-pink-600 bg-300% animate-gradient text-white px-6 lg:px-8 py-3 lg:py-4 rounded-full font-bold text-base lg:text-lg transition-all duration-500 hover:shadow-xl hover:scale-105 transform inline-flex items-center justify-center overflow-hidden"
@@ -118,7 +118,7 @@ const Hero = () => {
               </div>
 
               {/* Dynamic Stats */}
-              <div className={`flex flex-wrap justify-center lg:justify-start gap-4 lg:gap-6 pt-4 lg:pt-6 transition-all duration-1000 delay-900 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
+              <div className={`flex flex-wrap justify-center gap-4 lg:gap-6 pt-4 lg:pt-6 transition-all duration-1000 delay-900 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
                 {Object.entries(currentContent.stats).map(([key, value], index) => (
                   <div key={key} className="text-center group hover:scale-110 transition-transform duration-300">
                     <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-600 mb-1 group-hover:text-purple-600 transition-colors">
@@ -132,7 +132,7 @@ const Hero = () => {
               </div>
 
               {/* Key Benefits */}
-              <div className={`flex flex-wrap justify-center lg:justify-start gap-3 lg:gap-6 pt-4 lg:pt-6 transition-all duration-1000 delay-1100 ${isVisible ? 'animate-slide-up' : 'opacity-0 translate-y-10'}`}>
+              <div className={`flex flex-wrap justify-center gap-3 lg:gap-6 pt-4 lg:pt-6 transition-all duration-1000 delay-1100 ${isVisible ? 'animate-slide-up' : 'opacity-0 translate-y-10'}`}>
                 {[
                   { icon: Leaf, text: 'Eco-Friendly', color: 'text-green-500' },
                   { icon: Shield, text: 'Medical Grade', color: 'text-blue-500' },
