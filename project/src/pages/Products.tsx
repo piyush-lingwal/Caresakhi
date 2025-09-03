@@ -177,7 +177,7 @@ const Products = () => {
             </div>
 
             {/* Products */}
-            <div className={`grid gap-6 ${
+            <div className={`grid gap-6 ₹{
               viewMode === 'grid' 
                 ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3' 
                 : 'grid-cols-1'
@@ -185,7 +185,7 @@ const Products = () => {
               {sortedProducts.map(product => (
                 <Link
                   key={product.id}
-                  to={`/product/${product.id}`}
+                  to={`/product/₹{product.id}`}
                   className={`group bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden ${
                     viewMode === 'list' ? 'flex' : ''
                   }`}
@@ -235,11 +235,11 @@ const Products = () => {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <span className="text-xl font-bold text-gray-800">
-                          ${product.price}
+                          ₹{product.price}
                         </span>
                         {product.originalPrice && (
                           <span className="text-sm text-gray-400 line-through">
-                            ${product.originalPrice}
+                            ₹{product.originalPrice}
                           </span>
                         )}
                       </div>
