@@ -24,7 +24,7 @@ const Blog = () => {
       author: 'Dr. Sarah Johnson',
       date: '2024-01-15',
       category: 'education',
-      image: 'https://images.pexels.com/photos/7319325/pexels-photo-7319325.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: 'https://www.bemewoman.com/cdn/shop/articles/cuph1_099fb011-0121-441a-85aa-7150e207a72c_1200x1200.png?v=1744103693',
       readTime: '8 min read',
       featured: true
     },
@@ -37,7 +37,7 @@ const Blog = () => {
       author: 'Emily Chen',
       date: '2024-01-12',
       category: 'sustainability',
-      image: 'https://images.pexels.com/photos/7319070/pexels-photo-7319070.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: 'https://cdn.shopify.com/s/files/1/1953/3723/files/2_Small_Changes_Big_Impact__Your_Guide_to_Zero-Waste_Swaps.png?v=1743171692',
       readTime: '6 min read',
       featured: false
     },
@@ -50,7 +50,7 @@ const Blog = () => {
       author: 'Dr. Maria Rodriguez',
       date: '2024-01-10',
       category: 'health',
-      image: 'https://images.pexels.com/photos/7262708/pexels-photo-7262708.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoivJqJ5wr0bsjxrh06wSNyZl5yhd5JwngTQ&s',
       readTime: '5 min read',
       featured: false
     },
@@ -63,7 +63,7 @@ const Blog = () => {
       author: 'Lisa Thompson',
       date: '2024-01-08',
       category: 'lifestyle',
-      image: 'https://images.pexels.com/photos/7319069/pexels-photo-7319069.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: 'https://cdn.shopify.com/s/files/1/0065/0703/6757/files/3_3c7efe9d-c14e-49eb-ab4d-f54769d61cb9_600x600.jpg?v=1670844914',
       readTime: '7 min read',
       featured: false
     },
@@ -76,7 +76,7 @@ const Blog = () => {
       author: 'Amanda Wilson',
       date: '2024-01-05',
       category: 'lifestyle',
-      image: 'https://images.pexels.com/photos/7319326/pexels-photo-7319326.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: 'https://storage.googleapis.com/stateless-www-justwravel-com/2024/06/28b5f226-period-hacks-while-traveling-810x528.png',
       readTime: '4 min read',
       featured: false
     },
@@ -89,7 +89,7 @@ const Blog = () => {
       author: 'Dr. Sarah Johnson',
       date: '2024-01-03',
       category: 'health',
-      image: 'https://images.pexels.com/photos/7319070/pexels-photo-7319070.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: 'https://nimaaya.com/wp-content/uploads/2024/05/Periods-Symptoms.png',
       readTime: '10 min read',
       featured: false
     }
