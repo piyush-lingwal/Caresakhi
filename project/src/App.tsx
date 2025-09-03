@@ -1,9 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { CartProvider } from './context/CartContext';
+import { CartProvider, useCart } from './context/CartContext';
 import { AuthProvider } from './context/AuthContext';
+
 import Header from './components/Header';
 import Footer from './components/Footer';
+import SuccessAlert from './components/SuccessAlert';
+
 import Home from './pages/Home';
 import Products from './pages/Products';
 import ProductDetail from './pages/ProductDetail';
@@ -39,54 +42,63 @@ import EducationCupGuide from './pages/EducationCupGuide';
 import EducationSizing from './pages/EducationSizing';
 import EducationCare from './pages/EducationCare';
 
+const AppContent = () => {
+  const { successMessage } = useCart();
+
+  return (
+    <div className="min-h-screen bg-white flex flex-col">
+      <Header />
+      {successMessage && <SuccessAlert message={successMessage} />}
+      <main className="flex-1 pt-20">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/products/:category" element={<Products />} />
+          <Route path="/product/:id" element={<ProductDetail />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/account" element={<Account />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/period-tracker" element={<PeriodTracker />} />
+          <Route path="/wallet" element={<Wallet />} />
+          <Route path="/distributer-dashboard" element={<DistributerDashboard />} />
+          <Route path="/pharmacy-dashboard" element={<PharmacyDashboard />} />
+          <Route path="/order-confirmation/:orderId" element={<OrderConfirmation />} />
+          <Route path="/size-guide" element={<SizeGuide />} />
+          <Route path="/how-to-use" element={<HowToUse />} />
+          <Route path="/care-instructions" element={<CareInstructions />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/reviews" element={<Reviews />} />
+          <Route path="/sustainability" element={<Sustainability />} />
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Route path="/shipping-policy" element={<ShippingPolicy />} />
+          <Route path="/return-policy" element={<ReturnPolicy />} />
+          <Route path="/accessibility" element={<Accessibility />} />
+          <Route path="/education/:slug" element={<EducationDetail />} />
+          <Route path="/education/cup-guide" element={<EducationCupGuide />} />
+          <Route path="/education/sizing" element={<EducationSizing />} />
+          <Route path="/education/care" element={<EducationCare />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
 function App() {
   return (
     <AuthProvider>
       <CartProvider>
         <Router>
-          <div className="min-h-screen bg-white flex flex-col">
-            <Header />
-            <main className="flex-1 pt-20">
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/products" element={<Products />} />
-                <Route path="/products/:category" element={<Products />} />
-                <Route path="/product/:id" element={<ProductDetail />} />
-                <Route path="/cart" element={<Cart />} />
-                <Route path="/checkout" element={<Checkout />} />
-                <Route path="/account" element={<Account />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/blog/:slug" element={<BlogPost />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/period-tracker" element={<PeriodTracker />} />
-                <Route path="/wallet" element={<Wallet />} />
-                <Route path="/distributer-dashboard" element={<DistributerDashboard />} />
-                <Route path="/pharmacy-dashboard" element={<PharmacyDashboard />} />
-                <Route path="/order-confirmation/:orderId" element={<OrderConfirmation />} />
-                <Route path="/size-guide" element={<SizeGuide />} />
-                <Route path="/how-to-use" element={<HowToUse />} />
-                <Route path="/care-instructions" element={<CareInstructions />} />
-                <Route path="/faq" element={<FAQ />} />
-                <Route path="/reviews" element={<Reviews />} />
-                <Route path="/sustainability" element={<Sustainability />} />
-                <Route path="/careers" element={<Careers />} />
-                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-                <Route path="/terms-of-service" element={<TermsOfService />} />
-                <Route path="/shipping-policy" element={<ShippingPolicy />} />
-                <Route path="/return-policy" element={<ReturnPolicy />} />
-                <Route path="/accessibility" element={<Accessibility />} />
-                <Route path="/education/:slug" element={<EducationDetail />} />
-                <Route path="/education/cup-guide" element={<EducationCupGuide />} />
-                <Route path="/education/sizing" element={<EducationSizing />} />
-                <Route path="/education/care" element={<EducationCare />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </main>
-            <Footer />
-          </div>
+          <AppContent />
         </Router>
       </CartProvider>
     </AuthProvider>
@@ -94,3 +106,4 @@ function App() {
 }
 
 export default App;
+
