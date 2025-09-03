@@ -4,8 +4,37 @@ import { User, Package, Heart, Settings, LogOut, Edit, Save, X, MapPin, Wallet a
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
 
+// --- Type Definitions for Props ---
+interface ProfileData {
+  name: string;
+  email: string;
+  phone: string;
+  address: string;
+  city: string;
+  state: string;
+  zipCode: string;
+}
+
+interface CartItem {
+  id: number;
+  name: string;
+  price: number;
+  image: string;
+}
+
+interface MemoizedTabContentProps {
+  activeTab: string;
+  theme: any;
+  profileData: ProfileData;
+  setProfileData: React.Dispatch<React.SetStateAction<ProfileData>>;
+  isEditing: boolean;
+  setIsEditing: React.Dispatch<React.SetStateAction<boolean>>;
+  handleSave: () => void;
+  handleAddToCart: (item: CartItem) => void;
+}
+
 // Memoized Tab Content to prevent unnecessary re-renders
-const MemoizedTabContent = React.memo(({ activeTab, theme, profileData, setProfileData, isEditing, setIsEditing, handleSave, handleAddToCart }) => {
+const MemoizedTabContent: React.FC<MemoizedTabContentProps> = React.memo(({ activeTab, theme, profileData, setProfileData, isEditing, setIsEditing, handleSave, handleAddToCart }) => {
   const mockProducts = [
     { id: 1, name: 'EcoFlow Cup', price: 45, image: 'https://images.pexels.com/photos/7319325/pexels-photo-7319325.jpeg?auto=compress&cs=tinysrgb&w=300', category: 'Menstrual Cups' },
     { id: 2, name: 'ComfortMax Brief', price: 32, image: 'https://images.pexels.com/photos/7262708/pexels-photo-7262708.jpeg?auto=compress&cs=tinysrgb&w=300', category: 'Period Underwear' },
@@ -227,12 +256,21 @@ const MemoizedTabContent = React.memo(({ activeTab, theme, profileData, setProfi
     }
 });
 
+// --- Static object defined outside the component ---
+const theme = {
+    gradient: 'from-pink-500 to-rose-500',
+    bgPattern: 'from-pink-50 to-rose-50',
+    accent: 'pink',
+    icon: Crown,
+    title: 'Customer Account'
+};
+
 const Account = () => {
   const { user, logout } = useAuth();
   const { addItem } = useCart();
   const [activeTab, setActiveTab] = useState('profile');
   const [isEditing, setIsEditing] = useState(false);
-  const [profileData, setProfileData] = useState({
+  const [profileData, setProfileData] = useState<ProfileData>({
     name: user?.name || '',
     email: user?.email || '',
     phone: '123-456-7890',
@@ -242,19 +280,11 @@ const Account = () => {
     zipCode: '400001'
   });
 
-  const theme = {
-      gradient: 'from-pink-500 to-rose-500',
-      bgPattern: 'from-pink-50 to-rose-50',
-      accent: 'pink',
-      icon: Crown,
-      title: 'Customer Account'
-  };
-
   const handleSave = useCallback(() => {
     setIsEditing(false);
   }, []);
 
-  const handleAddToCart = useCallback((item) => {
+  const handleAddToCart = useCallback((item: CartItem) => {
     addItem({
         id: item.id,
         name: item.name,
