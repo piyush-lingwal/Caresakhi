@@ -84,7 +84,7 @@ const About = () => {
                   <p>
                     Wecare+ was born from a simple yet powerful realization: the menstrual products 
                     available to women were outdated, unsustainable, and often uncomfortable. Our founder, 
-                    Sarah Johnson, experienced this firsthand during her years as a healthcare professional.
+                    Piyush Lingwal, experienced this firsthand during her years as a healthcare professional.
                   </p>
                   <p>
                     After witnessing countless women struggle with traditional products and their 
@@ -106,7 +106,7 @@ const About = () => {
                 />
                 <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-lg">
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-emerald-600">2019</div>
+                    <div className="text-2xl font-bold text-emerald-600">2025</div>
                     <div className="text-sm text-gray-600">Founded</div>
                   </div>
                 </div>
