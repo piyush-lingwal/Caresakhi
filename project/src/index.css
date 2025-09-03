@@ -344,4 +344,31 @@
   .nav-link-desktop.active {
     @apply text-pink-600;
   }
+
+  /* ... keep all existing styles above this line ... */
+
+.card-hover:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@layer components {
+/* ... keep all existing styles below this line ... */
+
+
 }
