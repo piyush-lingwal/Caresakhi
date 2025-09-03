@@ -13,23 +13,23 @@ const Hero = () => {
       description: "Join thousands of women who trust CareSakhi for their menstrual health. Better for you, better for the planet.",
       cta: "Shop Now",
       ctaSecondary: "Track Period",
-      stats: { users: "50,000+", satisfaction: "98%", products: "15+" }
+      stats: { users: "50,000+", satisfaction: "98%", pharmacies: "100+" }
     },
     {
-      title: "Premium Quality Protection",
-      subtitle: "Medical Grade • Long Lasting",
+      title: "Premium Quality Reusable Products",
+      subtitle: "Innovation • Student Entrepreneurs",
       description: "Our medical-grade silicone cups and innovative period underwear provide superior comfort and reliability.",
       cta: "Explore Products",
       ctaSecondary: "Learn More",
-      stats: { protection: "12 Hours", comfort: "99%", quality: "Medical Grade" }
+      stats: { Distributers: "1000+", products: "10+", quality: "Premium" }
     },
     {
       title: "Revolutionizing Women's Health",
-      subtitle: "Innovation • Science • Care",
+      subtitle: "Medical Grade • Long Lastinge",
       description: "Advanced technology meets traditional care. Experience the future of menstrual health with our award-winning products.",
       cta: "Get Started",
       ctaSecondary: "Watch Demo",
-      stats: { awards: "15+", research: "5 Years", innovation: "Cutting Edge" }
+      stats: {protection: "12 Hours", comfort: "99%", quality: "Medical Grade" }
     }
   ];
 
