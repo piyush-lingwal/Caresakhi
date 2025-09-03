@@ -4,11 +4,8 @@
 **Sustainable • Comfortable • Empowering**
 
 [![Live Demo](https://img.shields.io/badge/Demo-Live-brightgreen)](https://caresakhi.vercel.app)
-[![Tech Stack](https://img.shields.io/badge/Stack-React%2BNode.js-blue)](#tech-stack)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Competition](https://img.shields.io/badge/CARE--A--THON-Winner-gold)](#)
 
-CareSakhi is a revolutionary **AI-powered smart platform** that transforms access to reusable menstrual products on college campuses. Built as the winning solution for **CARE-A-THON** (Campus Action for Reusable Essentials), our platform creates a direct-to-student supply chain that bypasses traditional pharmacy resistance while empowering graduates as tech-enabled distributors.
+CareSakhi is a revolutionary **AI-powered smart platform** that transforms access to reusable menstrual products on college campuses.  Our platform creates a direct-to-student supply chain that bypasses traditional pharmacy resistance while empowering graduates as tech-enabled distributors.
 
 ## 🚀 The Problem We Solve
 
@@ -131,48 +128,6 @@ Creates sustainable income opportunities for female graduates in tech-enabled di
 ### **🏛️ Cultural Sensitivity**
 Designed for Indian context with regional preferences and cultural awareness
 
-## 📊 Impact Metrics
-
-- **🎓 500+** Campus distributors onboarded
-- **🛍️ 10,000+** Products distributed through platform
-- **🌱 2.4M+** Disposable products eliminated (environmental impact)
-- **💰 ₹50L+** Income generated for student entrepreneurs
-- **🏥 100+** Partner pharmacies across 25+ cities
-- **📱 25,000+** Active users with 85% retention rate
-
-## 🗺️ Roadmap
-
-### **Phase 1: Foundation** ✅
-- [x] Multi-stakeholder platform development
-- [x] Basic AI recommendation system
-- [x] Payment integration and digital wallet
-- [x] Period tracking and analytics
-
-### **Phase 2: AI Enhancement** 🚧
-- [ ] Advanced AI chatbot with health guidance
-- [ ] Predictive analytics for demand forecasting
-- [ ] Personalized content generation
-- [ ] Voice-enabled interfaces
-
-### **Phase 3: Scale & Expansion** 📅
-- [ ] Community forum and peer support
-- [ ] Subscription box services
-- [ ] Telehealth integration
-- [ ] International market expansion
-
-### **Phase 4: Innovation** 🔮
-- [ ] AR/VR product demonstrations
-- [ ] IoT integration for smart inventory
-- [ ] Blockchain supply chain transparency
-- [ ] Advanced health insights and predictions
-
-## 🏆 Awards & Recognition
-
-- **🥇 CARE-A-THON Winner** - ₹1,00,000 prize for highest impact solution
-- **🌟 Best Technical Innovation** - Modern AI-powered platform architecture
-- **💚 Sustainability Champion** - Measurable environmental impact
-- **👩‍💼 Women Empowerment Award** - Creating opportunities for female entrepreneurs
-
 ## 👥 Team
 
 **Core Development Team:**
@@ -224,18 +179,6 @@ We love contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for 
 - **💬 Discord:** [Join our community](https://discord.gg/caresakhi)
 - **🐦 Twitter:** [@CareSakhiApp](https://twitter.com/CareSakhiApp)
 - **📱 Website:** [www.caresakhi.com](https://caresakhi.com)
-
-## 📜 License
-
-Distributed under the MIT License. See [`LICENSE`](LICENSE) for more information.
-
-## 🙏 Acknowledgments
-
-- **CARE-A-THON Organizers** for the opportunity to create meaningful impact
-- **Menstrual Health Experts** who guided our educational content
-- **Campus Partners** who supported our pilot programs
-- **Open Source Community** for the amazing tools and libraries
-
 ---
 
 <div align="center">
@@ -248,3 +191,4 @@ Distributed under the MIT License. See [`LICENSE`](LICENSE) for more information
 [![Follow on Twitter](https://img.shields.io/twitter/follow/CareSakhiApp?style=social)](https://twitter.com/CareSakhiApp)
 
 </div>
+
