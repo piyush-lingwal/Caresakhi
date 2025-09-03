@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Eye, EyeOff, Heart, Sparkles, Users, Building, ShoppingBag } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
@@ -11,9 +11,11 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [selectedUserType, setSelectedUserType] = useState('customer');
-  
+
   const { login, isLoading } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/account';
 
   const userTypes = [
     {
@@ -57,7 +59,7 @@ const Login = () => {
 
     const success = await login(formData.email, formData.password);
     if (success) {
-      navigate('/account');
+      navigate(from, { replace: true });
     } else {
       setError('Invalid email or password');
     }
