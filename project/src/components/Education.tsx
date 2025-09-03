@@ -147,7 +147,7 @@ const Education = () => {
               <div className="relative">
                 <a href={benefits[activeTab].youtubeLink} target="_blank" rel="noopener noreferrer" className="block aspect-video bg-white rounded-2xl shadow-xl overflow-hidden group">
                   <img
-                    src="https://images.pexels.com/photos/7262708/pexels-photo-7262708.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    src="https://cdn.prod.website-files.com/65843eadefe94c7457b780dd/65e983c3aaf023dae3faf888_1st%20image-%20Intro.png"
                     alt="Educational content"
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
