@@ -45,21 +45,21 @@ const Education = () => {
       title: 'How Menstrual Cups Work',
       duration: '3 min read',
       preview: 'Learn about the science behind menstrual cups and why they\'re revolutionizing period care.',
-      image: 'https://images.pexels.com/photos/7319070/pexels-photo-7319070.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: 'https://media.post.rvohealth.io/wp-content/uploads/2019/07/Menstrual_Cup_732x549-thumbnail.jpg',
       slug: 'cup-guide'
     },
     {
       title: 'Sizing Guide',
       duration: '2 min read',
       preview: 'Find your perfect fit with our comprehensive sizing guide and recommendations.',
-      image: 'https://images.pexels.com/photos/7262708/pexels-photo-7262708.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: 'https://cdn.shopify.com/s/files/1/0485/4290/8573/files/2_fddbb52e-daba-4564-951e-d99d0afc49a0.jpg?v=1736229184',
       slug: 'sizing'
     },
     {
       title: 'Care & Maintenance',
       duration: '4 min read',
       preview: 'Simple steps to keep your reusable products clean, safe, and long-lasting.',
-      image: 'https://images.pexels.com/photos/7319069/pexels-photo-7319069.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: 'https://www.orangehealthcare.in/wp-content/uploads/2023/06/Cara-Menghitung-Masa-Subur-1024x576-1.jpg',
       slug: 'care'
     }
   ];
