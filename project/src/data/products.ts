@@ -22,15 +22,15 @@ export const products: Product[] = [
     id: 1,
     name: 'EcoFlow Cup',
     category: 'cups',
-    price: 3375, // ₹45 * 75 (approximate conversion)
-    originalPrice: 4500, // ₹60 * 75
+    price: 499, // ₹45 * 75 (approximate conversion)
+    originalPrice: 699, // ₹60 * 75
     rating: 4.8,
     reviews: 1234,
-    image: 'https://images.pexels.com/photos/7319325/pexels-photo-7319325.jpeg?auto=compress&cs=tinysrgb&w=400',
+    image: 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSHhhLw8RkyPjF-nGtd52lM0y8XgofEPxnNKOiGgQY-Wort52TXMqaIoqfNV08U1PXKJyQmJWVGJr5lzPgmemZe9n8bIAtXMiOnvChkuNaeufLpslpLPRFU4w',
     images: [
-      'https://images.pexels.com/photos/7319325/pexels-photo-7319325.jpeg?auto=compress&cs=tinysrgb&w=600',
-      'https://images.pexels.com/photos/7319326/pexels-photo-7319326.jpeg?auto=compress&cs=tinysrgb&w=600',
-      'https://images.pexels.com/photos/7319070/pexels-photo-7319070.jpeg?auto=compress&cs=tinysrgb&w=600'
+      'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSHhhLw8RkyPjF-nGtd52lM0y8XgofEPxnNKOiGgQY-Wort52TXMqaIoqfNV08U1PXKJyQmJWVGJr5lzPgmemZe9n8bIAtXMiOnvChkuNaeufLpslpLPRFU4w',
+      'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSg_uJU2IpPOfYthwuroav_CgrvsGRGEzG-Ldepfi7rMlv-jUs1nH2Vg7KJID7UujIofvBsYn-70_vf-ea47iFMzg3XqrKey99DubTnfirdPSGDLHRw1M6SAw',
+      'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQjdMGyNIB7oLMQE6SIlGgAJaHUjTsbEYDmbvBYwYR3cXgptfsBdWSuxYju0QJQNzRcrDmvqRTzdKUZxUjAOQNkat9Ljmot7TfPzhvM8ZaEnHSleE06VQ'
     ],
     description: 'Our flagship menstrual cup made from premium medical-grade silicone. Designed for comfort and reliability, the EcoFlow Cup provides up to 12 hours of protection.',
     features: ['12hr Protection', 'Medical Grade Silicone', '10 Year Lifespan', 'Eco-Friendly', 'Easy to Clean'],
@@ -41,16 +41,16 @@ export const products: Product[] = [
   },
   {
     id: 2,
-    name: 'ComfortMax Brief',
+    name: 'Reusable Sanitary Pads',
     category: 'underwear',
-    price: 2400, // ₹32 * 75
-    originalPrice: 3000, // ₹40 * 75
+    price: 259, // ₹32 * 75
+    originalPrice: 399, // ₹40 * 75
     rating: 4.9,
     reviews: 892,
-    image: 'https://images.pexels.com/photos/7262708/pexels-photo-7262708.jpeg?auto=compress&cs=tinysrgb&w=400',
+    image: 'https://5.imimg.com/data5/SELLER/Default/2024/1/377286315/GV/IE/YY/78215961/4-piece-pink-reusable-pads.jpg',
     images: [
-      'https://images.pexels.com/photos/7262708/pexels-photo-7262708.jpeg?auto=compress&cs=tinysrgb&w=600',
-      'https://images.pexels.com/photos/7319070/pexels-photo-7319070.jpeg?auto=compress&cs=tinysrgb&w=600'
+      'https://5.imimg.com/data5/SELLER/Default/2024/1/377286315/GV/IE/YY/78215961/4-piece-pink-reusable-pads.jpg',
+      'https://fabpad.in/cdn/shop/products/81eDZD_6J3S._SL1500.jpg?v=1750922735&width=1100'
     ],
     description: 'Ultra-absorbent period underwear that feels just like regular underwear. Perfect for light to heavy flow days with leak-proof protection.',
     features: ['Ultra Absorbent', 'Leak-Proof', 'Machine Washable', 'Comfortable Fit', 'Odor Control'],
@@ -63,13 +63,13 @@ export const products: Product[] = [
     id: 3,
     name: 'Travel Kit Pro',
     category: 'accessories',
-    price: 1875, // ₹25 * 75
-    originalPrice: 2625, // ₹35 * 75
+    price: 999, // ₹25 * 75
+    originalPrice: 1199, // ₹35 * 75
     rating: 4.7,
     reviews: 456,
-    image: 'https://images.pexels.com/photos/7319069/pexels-photo-7319069.jpeg?auto=compress&cs=tinysrgb&w=400',
+    image: 'https://caresakhi-testing.vercel.app/travel%20kit.png',
     images: [
-      'https://images.pexels.com/photos/7319069/pexels-photo-7319069.jpeg?auto=compress&cs=tinysrgb&w=600'
+      'https://caresakhi-testing.vercel.app/travel%20kit.png'
     ],
     description: 'Complete travel kit with sterilizer, storage pouch, and cleaning tablets. Perfect for maintaining hygiene on the go.',
     features: ['Sterilizer Included', 'Compact Design', 'Travel Friendly', 'Cleaning Tablets', 'Storage Pouch'],
