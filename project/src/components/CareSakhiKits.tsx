@@ -16,7 +16,7 @@ const CareSakhiKits = () => {
       reviews: 2156,
       image: '/heavy flow kit.png',
       description: 'Everything you need for a complete sustainable period experience.',
-      includes: ['1 Menstrual Cups', '2 High Absorbency Underwear', '3 Large Cloth Pads', 'Large Wet Bag', 'pH Balanced intimate wipes', 'Sanitizer']
+      includes: ['1 Menstrual Cups', '2 High Absorbency Underwear', '3 Large Cloth Pads', 'Large Wet Bag', 'pH Balanced intimate wipes', 'Sanitizer'],
       badge: 'Most Popular',
       gradient: 'from-pink-500 to-purple-500'
     },
