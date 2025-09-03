@@ -50,7 +50,7 @@ const ProductShowcase = () => {
       originalPrice: 35,
       rating: 4.7,
       reviews: 456,
-      image: '/public/travel kit.png',
+      image: '/travel kit.png',
       features: ['Sterilizer Included', 'Compact Design', 'Travel Friendly'],
       sizes: ['One Size'],
       colors: ['Pink', 'Blue', 'Green']
