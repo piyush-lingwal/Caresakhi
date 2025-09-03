@@ -100,7 +100,7 @@ const About = () => {
               </div>
               <div className="relative">
                 <img
-                  src="https://images.pexels.com/photos/7319070/pexels-photo-7319070.jpeg?auto=compress&cs=tinysrgb&w=600"
+                  src="/unnamed.png"
                   alt="Our story"
                   className="w-full rounded-2xl shadow-xl"
                 />
