@@ -84,8 +84,7 @@ const BlogPost = () => {
       id: 3,
       title: 'Period Pain Management: Natural Remedies That Actually Work',
       slug: 'period-pain-management-natural-remedies',
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoivJqJ5wr0bsjxrh06wSNyZl5yhd5JwngTQ&s
-'
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoivJqJ5wr0bsjxrh06wSNyZl5yhd5JwngTQ&s'
     },
     {
       id: 4,
