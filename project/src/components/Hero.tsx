@@ -21,7 +21,7 @@ const Hero = () => {
       description: "Our medical-grade silicone cups and innovative period underwear provide superior comfort and reliability.",
       cta: "Explore Products",
       ctaSecondary: "Learn More",
-      stats: { Distributers: "1000+", products: "12+", quality: "Premium" }
+      stats: { Distributers: "1000+", products: "11+", quality: "Premium" }
     },
     {
       title: "Revolutionizing Women's Health",
