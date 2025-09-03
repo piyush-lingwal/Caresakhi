@@ -2,7 +2,8 @@ import React, { createContext, useReducer, useContext, ReactNode, useState } fro
 
 // Types
 export interface CartItem {
-  id: number;
+  id: string; // Changed to string to support composite IDs (e.g., "1-Small-Red")
+  productId: number;
   name: string;
   price: number;
   image: string;
@@ -18,17 +19,18 @@ interface State {
 
 type Action = 
   | { type: 'ADD_ITEM'; payload: CartItem }
-  | { type: 'REMOVE_ITEM'; payload: { id: number } }
-  | { type: 'UPDATE_QUANTITY'; payload: { id: number; quantity: number } }
+  | { type: 'REMOVE_ITEM'; payload: { id: string } }
+  | { type: 'UPDATE_QUANTITY'; payload: { id: string; quantity: number } }
   | { type: 'CLEAR_CART' };
 
 interface CartContextType {
   state: State;
-  addItem: (item: Omit<CartItem, 'quantity'>) => void;
-  removeItem: (id: number) => void;
-  updateQuantity: (id: number, quantity: number) => void;
+  addItem: (item: Omit<CartItem, 'quantity' | 'id'>) => void;
+  removeItem: (id: string) => void;
+  updateQuantity: (id: string, quantity: number) => void;
   clearCart: () => void;
   successMessage: string | null;
+  setSuccessMessage: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
 // Context
@@ -84,23 +86,17 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [state, dispatch] = useReducer(cartReducer, initialState);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
-  const showSuccessMessage = (message: string) => {
-    setSuccessMessage(message);
-    setTimeout(() => {
-      setSuccessMessage(null);
-    }, 3000); // Message disappears after 3 seconds
+  const addItem = (item: Omit<CartItem, 'quantity' | 'id'>) => {
+    const compositeId = `${item.productId}-${item.size || ''}-${item.color || ''}`;
+    dispatch({ type: 'ADD_ITEM', payload: { ...item, id: compositeId, quantity: 1 } });
+    setSuccessMessage(`Added "${item.name}" to cart!`);
   };
 
-  const addItem = (item: Omit<CartItem, 'quantity'>) => {
-    dispatch({ type: 'ADD_ITEM', payload: { ...item, quantity: 1 } });
-    showSuccessMessage(`Added "${item.name}" to cart!`);
-  };
-
-  const removeItem = (id: number) => {
+  const removeItem = (id: string) => {
     dispatch({ type: 'REMOVE_ITEM', payload: { id } });
   };
   
-  const updateQuantity = (id: number, quantity: number) => {
+  const updateQuantity = (id: string, quantity: number) => {
       dispatch({ type: 'UPDATE_QUANTITY', payload: { id, quantity }});
   }
 
@@ -109,7 +105,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <CartContext.Provider value={{ state, addItem, removeItem, updateQuantity, clearCart, successMessage }}>
+    <CartContext.Provider value={{ state, addItem, removeItem, updateQuantity, clearCart, successMessage, setSuccessMessage }}>
       {children}
     </CartContext.Provider>
   );
@@ -123,4 +119,3 @@ export const useCart = () => {
   }
   return context;
 };
-
