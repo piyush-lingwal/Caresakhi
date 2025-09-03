@@ -13,7 +13,7 @@ const BlogPost = () => {
     author: 'Dr. Sarah Johnson',
     date: '2024-01-15',
     category: 'education',
-    image: 'https://images.pexels.com/photos/7319325/pexels-photo-7319325.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://www.bemewoman.com/cdn/shop/articles/cuph1_099fb011-0121-441a-85aa-7150e207a72c_1200x1200.png?v=1744103693',
     readTime: '8 min read',
     content: `
       <p>Menstrual cups have revolutionized period care for millions of women worldwide. If you're considering making the switch from traditional tampons and pads, this comprehensive guide will provide you with everything you need to know about menstrual cups.</p>
