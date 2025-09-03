@@ -1,14 +1,26 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import { useAuth } from '../context/AuthContext';
 import { Minus, Plus, Trash2, ShoppingCart } from 'lucide-react';
 
 const Cart = () => {
   const { state, removeItem, updateQuantity } = useCart();
+  const { user } = useAuth();
+  const navigate = useNavigate();
 
   const subtotal = state.items.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const tax = subtotal * 0.18; // Example 18% tax
   const total = subtotal + tax;
+
+  const handleCheckout = () => {
+    if (user) {
+      navigate('/checkout');
+    } else {
+      // Redirect to login page, but remember where we came from
+      navigate('/login', { state: { from: '/cart' } });
+    }
+  };
 
   if (state.items.length === 0) {
     return (
@@ -60,9 +72,9 @@ const Cart = () => {
               <div className="flex justify-between"><span>Tax (18%)</span><span>₹{tax.toFixed(2)}</span></div>
               <div className="flex justify-between font-bold text-lg border-t pt-4"><span>Total</span><span>₹{total.toFixed(2)}</span></div>
             </div>
-            <Link to="/checkout" className="mt-6 w-full block text-center bg-pink-600 text-white py-3 rounded-lg font-semibold hover:bg-pink-700 transition-colors">
+            <button onClick={handleCheckout} className="mt-6 w-full block text-center bg-pink-600 text-white py-3 rounded-lg font-semibold hover:bg-pink-700 transition-colors">
               Proceed to Checkout
-            </Link>
+            </button>
           </div>
         </div>
       </div>
@@ -71,3 +83,4 @@ const Cart = () => {
 };
 
 export default Cart;
+
