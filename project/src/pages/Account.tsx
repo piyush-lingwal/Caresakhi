@@ -242,7 +242,13 @@ const Account = () => {
     zipCode: '400001'
   });
 
-  const theme = getThemeConfig();
+  const theme = {
+      gradient: 'from-pink-500 to-rose-500',
+      bgPattern: 'from-pink-50 to-rose-50',
+      accent: 'pink',
+      icon: Crown,
+      title: 'Customer Account'
+  };
 
   const handleSave = useCallback(() => {
     setIsEditing(false);
@@ -357,17 +363,6 @@ const Account = () => {
       </div>
     </div>
   );
-};
-
-const getThemeConfig = () => {
-    return {
-      gradient: 'from-pink-500 to-rose-500',
-      bgPattern: 'from-pink-50 to-rose-50',
-      accent: 'pink',
-      icon: Crown,
-      title: 'Customer Account',
-      subtitle: 'Your personal wellness journey'
-    };
 };
 
 export default Account;
