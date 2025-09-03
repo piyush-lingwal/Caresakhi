@@ -60,7 +60,7 @@ const Footer = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
             <div className="col-span-2 lg:col-span-1">
               <img 
-                src="/navbar logo.png" 
+                src="/navbar logo3.png" 
                 alt="CareSakhi Logo" 
                 className="h-16 w-auto object-contain mb-4"
               />
