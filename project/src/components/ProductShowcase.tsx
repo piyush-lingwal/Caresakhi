@@ -153,7 +153,7 @@ const ProductShowcase = () => {
                 
                 {product.originalPrice > product.price && (
                   <div className="absolute top-3 left-3 bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
-                    Save ${product.originalPrice - product.price}
+                    Save ₹{product.originalPrice - product.price}
                   </div>
                 )}
 
