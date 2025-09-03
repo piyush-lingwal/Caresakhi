@@ -20,7 +20,7 @@ const Education = () => {
       stat: '₹1,50,000+',
       description: 'saved over 10 years with reusable products',
       details: 'While the initial investment is higher, reusable products pay for themselves within the first year of use.',
-      youtubeLink: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' // Replace with your video link
+      youtubeLink: 'https://youtu.be/4gfr769T8KQ?feature=shared' // Replace with your video link
     },
     {
       icon: Clock,
@@ -28,7 +28,7 @@ const Education = () => {
       stat: '12 hours',
       description: 'of continuous protection with cups',
       details: 'Enjoy longer-lasting protection without frequent changes, perfect for busy lifestyles and overnight use.',
-      youtubeLink: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' // Replace with your video link
+      youtubeLink: 'https://youtu.be/4gfr769T8KQ?feature=shared' // Replace with your video link
     },
     {
       icon: Users,
@@ -36,7 +36,7 @@ const Education = () => {
       stat: '99.9%',
       description: 'of users report increased comfort',
       details: 'Made from medical-grade materials, our products are safer and more comfortable than traditional options.',
-      youtubeLink: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' // Replace with your video link
+      youtubeLink: 'https://youtu.be/4gfr769T8KQ?feature=shared' // Replace with your video link
     }
   ];
 
