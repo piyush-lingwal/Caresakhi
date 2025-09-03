@@ -121,7 +121,7 @@ const ProductShowcase = () => {
               <button
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
-                className={`px-5 py-3 rounded-full font-semibold transition-all duration-300 whitespace-nowrap text-sm sm:text-base ${
+                className={`px-5 py-3 rounded-full font-semibold transition-all duration-300 whitespace-nowrap text-sm sm:text-base ₹{
                   activeCategory === category.id
                     ? 'bg-pink-600 text-white shadow-lg'
                     : 'bg-white text-gray-600 hover:text-pink-600 hover:bg-pink-50 shadow-sm'
@@ -157,7 +157,7 @@ const ProductShowcase = () => {
                   </div>
                 )}
 
-                <div className={`absolute top-3 right-3 flex flex-col space-y-2 transition-all duration-300 ${
+                <div className={`absolute top-3 right-3 flex flex-col space-y-2 transition-all duration-300 ₹{
                   hoveredProduct === product.id ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'
                 }`}>
                   <button className="bg-white p-2 rounded-full shadow-lg hover:bg-pink-50 text-gray-600 hover:text-pink-600 transition-colors">
