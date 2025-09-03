@@ -12,7 +12,7 @@ const Education = () => {
       stat: '11 billion',
       description: 'disposable products are thrown away annually',
       details: 'One menstrual cup can replace up to 2,400 tampons and pads over its lifetime, significantly reducing environmental waste.',
-      youtubeLink: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' // Replace with your video link
+      youtubeLink: 'https://youtu.be/4gfr769T8KQ?feature=shared' // Replace with your video link
     },
     {
       icon: DollarSign,
