@@ -81,14 +81,14 @@ export const products: Product[] = [
     id: 4,
     name: 'PureFlex Cup',
     category: 'cups',
-    price: 3900, // ₹52 * 75
-    originalPrice: 4875, // ₹65 * 75
+    price: 699, // ₹52 * 75
+    originalPrice: 899, // ₹65 * 75
     rating: 4.9,
     reviews: 2156,
-    image: 'https://images.pexels.com/photos/7319326/pexels-photo-7319326.jpeg?auto=compress&cs=tinysrgb&w=400',
+    image: 'https://images-cdn.ubuy.co.in/6485afaa57c23d51673dbebb-dutchess-menstrual-cup-reusable-soft.jpg',
     images: [
-      'https://images.pexels.com/photos/7319326/pexels-photo-7319326.jpeg?auto=compress&cs=tinysrgb&w=600',
-      'https://images.pexels.com/photos/7319325/pexels-photo-7319325.jpeg?auto=compress&cs=tinysrgb&w=600'
+      'https://images-cdn.ubuy.co.in/6485afaa57c23d51673dbebb-dutchess-menstrual-cup-reusable-soft.jpg',
+      'https://rukminim2.flixcart.com/image/704/844/xif0q/menstrual-cup/u/v/d/large-1-menstrual-cup-h5486-hiniva-beauty-25-original-imah2zhzhjg4xjme.jpeg?q=90&crop=false'
     ],
     description: 'Premium platinum silicone cup with extra-soft material for sensitive users. Features easy-grip stem and smooth removal.',
     features: ['Extra Soft', 'Easy Removal', 'Platinum Silicone', 'Hypoallergenic', 'Long-lasting'],
@@ -101,12 +101,14 @@ export const products: Product[] = [
     id: 5,
     name: 'ActiveFlow Brief',
     category: 'underwear',
-    price: 2850, // ₹38 * 75
+    price: 359, // ₹38 * 75
+    originalPrice: 559, // ₹65 * 75
     rating: 4.8,
     reviews: 567,
-    image: 'https://images.pexels.com/photos/7262708/pexels-photo-7262708.jpeg?auto=compress&cs=tinysrgb&w=400',
+    image: 'https://m.media-amazon.com/images/I/6125KisEScL._UF1000,1000_QL80_.jpg',
     images: [
-      'https://images.pexels.com/photos/7262708/pexels-photo-7262708.jpeg?auto=compress&cs=tinysrgb&w=600'
+      'https://m.media-amazon.com/images/I/6125KisEScL._UF1000,1000_QL80_.jpg',
+      'https://m.media-amazon.com/images/I/61PP5BiDSeL._UF350,350_QL80_.jpg'
     ],
     description: 'High-performance period underwear designed for active lifestyles. Moisture-wicking and breathable fabric.',
     features: ['Moisture-Wicking', 'Breathable', 'Athletic Fit', 'Quick-Dry', 'Anti-Microbial'],
@@ -116,20 +118,21 @@ export const products: Product[] = [
   },
   {
     id: 6,
-    name: 'Starter Kit',
+    name: 'Period Disc',
     category: 'kits',
-    price: 6675, // ₹89 * 75
-    originalPrice: 9000, // ₹120 * 75
+    price: 459, // ₹89 * 75
+    originalPrice: 899, // ₹120 * 75
     rating: 4.9,
     reviews: 234,
-    image: 'https://images.pexels.com/photos/7319070/pexels-photo-7319070.jpeg?auto=compress&cs=tinysrgb&w=400',
+    image: 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSZTIBV6b1bsNkZ65RoGHZC9XBtcnFintdT2qT5Ot3fAXt39A2g8ta_pANQTNnL1GtJzMgEV4C4UOfDP-lWcJz3I4xkeCdlk8FznZD5YNRI-52mDFJbqqBb',
     images: [
-      'https://images.pexels.com/photos/7319070/pexels-photo-7319070.jpeg?auto=compress&cs=tinysrgb&w=600',
-      'https://images.pexels.com/photos/7319069/pexels-photo-7319069.jpeg?auto=compress&cs=tinysrgb&w=600'
+      'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRXzq9sHebRimTNiOZhakRJiTjjnWxUPa8Oh4qU6QqBf--fjnN0JeKtB-4qWiPIQzaFMx8T34mkMFuYZzHx2H2SHaeLkyLUOKfxix24od4FSPpMP6srKJMS',
+      'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTiyntqgSe-Mt6Xy2My3YElFsW4USVN0SgWDJKJmt2rf2g2jpee6D7R3u4UY1r0k_fNac20VG8DUCmt_SIWNXAnqz5XVwFs72sqPSOnNwvZj9IArAclGqY0',
+      'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQ6Nmptwk64bBllifiMZASxwrkaP9YqeTmXYox4yooUrpG6zq442euamjWH840optSknOZ2_tlB7_P7KwS6QHO3_vOoLjArebc6Bs16fBBBtUJ2Y1Gi9vHz'
     ],
     description: 'Complete starter kit with cup, period underwear, and travel accessories. Perfect for first-time users.',
-    features: ['Complete Kit', 'Beginner Friendly', 'Educational Guide', 'Multiple Products', 'Great Value'],
-    sizes: ['Small Kit', 'Medium Kit', 'Large Kit'],
+    features: ['8 hours Protection', 'Beginner Friendly', 'Educational Guide', 'Multiple Products', 'Great Value'],
+    sizes: ['Small', 'Medium', 'Large'],
     colors: ['Mixed'],
     inStock: true,
     isNew: true
