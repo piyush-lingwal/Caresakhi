@@ -363,7 +363,7 @@ const PeriodTracker = () => {
           <div className="text-center mb-8 lg:mb-12">
             <h1 className="text-3xl lg:text-4xl font-bold mb-4">
               <span className="bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">
-                Period Tracker
+                Smart Period Tracker
               </span>
             </h1>
             <p className="text-lg lg:text-xl text-gray-600">
