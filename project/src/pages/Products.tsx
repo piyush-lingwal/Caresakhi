@@ -97,7 +97,7 @@ const Products = () => {
                 </div>
               </div>
 
-              
+              {/* Rating Filter */} <div className="mb-6"> <h4 className="font-medium mb-3">Rating</h4> <div className="space-y-2"> {[4, 3, 2, 1].map(rating => ( <button key={rating} className="flex items-center space-x-2 w-full text-left hover:bg-gray-100 p-2 rounded"> <div className="flex"> {[...Array(5)].map((_, i) => ( <Star key={i} className={w-4 h-4 ${ i < rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300' }} /> ))} </div> <span className="text-sm">& up</span> </button> ))} </div> </div> </div> </div>
 
           {/* Products Grid */}
           <div className="flex-1">
