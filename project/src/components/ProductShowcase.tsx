@@ -24,7 +24,7 @@ const ProductShowcase = () => {
       originalPrice: 60,
       rating: 4.8,
       reviews: 1234,
-      image: 'https://images.pexels.com/photos/7319325/pexels-photo-7319325.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSHhhLw8RkyPjF-nGtd52lM0y8XgofEPxnNKOiGgQY-Wort52TXMqaIoqfNV08U1PXKJyQmJWVGJr5lzPgmemZe9n8bIAtXMiOnvChkuNaeufLpslpLPRFU4w',
       features: ['12hr Protection', 'Medical Grade Silicone', '10 Year Lifespan'],
       sizes: ['Small', 'Medium', 'Large'],
       colors: ['Clear', 'Pink', 'Purple']
@@ -37,7 +37,7 @@ const ProductShowcase = () => {
       originalPrice: 40,
       rating: 4.9,
       reviews: 892,
-      image: 'https://images.pexels.com/photos/7262708/pexels-photo-7262708.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGp7WCuUuIc9Z1SXFSbP-dMr7PmCqmpASQoA&s',
       features: ['Ultra Absorbent', 'Leak-Proof', 'Machine Washable'],
       sizes: ['XS', 'S', 'M', 'L', 'XL'],
       colors: ['Black', 'Nude', 'Navy']
@@ -50,7 +50,7 @@ const ProductShowcase = () => {
       originalPrice: 35,
       rating: 4.7,
       reviews: 456,
-      image: 'https://images.pexels.com/photos/7319069/pexels-photo-7319069.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: '/public/travel kit.png',
       features: ['Sterilizer Included', 'Compact Design', 'Travel Friendly'],
       sizes: ['One Size'],
       colors: ['Pink', 'Blue', 'Green']
@@ -63,7 +63,7 @@ const ProductShowcase = () => {
       originalPrice: 65,
       rating: 4.9,
       reviews: 2156,
-      image: 'https://images.pexels.com/photos/7319326/pexels-photo-7319326.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: 'https://m.media-amazon.com/images/I/71qwVrnL2mL._UF1000,1000_QL80_.jpg',
       features: ['Extra Soft', 'Easy Removal', 'Platinum Silicone'],
       sizes: ['Small', 'Medium', 'Large'],
       colors: ['Clear', 'Teal', 'Rose']
