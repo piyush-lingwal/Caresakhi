@@ -11,8 +11,8 @@ const ProductShowcase = () => {
   const categories = [
     { id: 'all', name: 'All Products' },
     { id: 'cups', name: 'Menstrual Cups' },
-    { id: 'underwear', name: 'Period Underwear' },
-    { id: 'accessories', name: 'Accessories' }
+    { id: 'underwear', name: 'Reusable Sanitary Pads' },
+    { id: 'accessories', name: 'Accessories' },
   ];
 
   const products = [
@@ -20,8 +20,8 @@ const ProductShowcase = () => {
       id: 1,
       name: 'EcoFlow Cup',
       category: 'cups',
-      price: 45,
-      originalPrice: 60,
+      price: 499,
+      originalPrice: 699,
       rating: 4.8,
       reviews: 1234,
       image: 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSHhhLw8RkyPjF-nGtd52lM0y8XgofEPxnNKOiGgQY-Wort52TXMqaIoqfNV08U1PXKJyQmJWVGJr5lzPgmemZe9n8bIAtXMiOnvChkuNaeufLpslpLPRFU4w',
@@ -31,13 +31,13 @@ const ProductShowcase = () => {
     },
     {
       id: 2,
-      name: 'ComfortMax Brief',
+      name: 'Reusable Sanitary Pads',
       category: 'underwear',
-      price: 32,
-      originalPrice: 40,
+      price: 259,
+      originalPrice: 399,
       rating: 4.9,
       reviews: 892,
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGp7WCuUuIc9Z1SXFSbP-dMr7PmCqmpASQoA&s',
+      image: 'https://5.imimg.com/data5/SELLER/Default/2024/1/377286315/GV/IE/YY/78215961/4-piece-pink-reusable-pads.jpg',
       features: ['Ultra Absorbent', 'Leak-Proof', 'Machine Washable'],
       sizes: ['XS', 'S', 'M', 'L', 'XL'],
       colors: ['Black', 'Nude', 'Navy']
@@ -46,8 +46,8 @@ const ProductShowcase = () => {
       id: 3,
       name: 'Travel Kit Pro',
       category: 'accessories',
-      price: 25,
-      originalPrice: 35,
+      price: 999,
+      originalPrice: 1199,
       rating: 4.7,
       reviews: 456,
       image: '/travel kit.png',
@@ -59,8 +59,8 @@ const ProductShowcase = () => {
       id: 4,
       name: 'PureFlex Cup',
       category: 'cups',
-      price: 52,
-      originalPrice: 65,
+      price: 399,
+      originalPrice: 699,
       rating: 4.9,
       reviews: 2156,
       image: 'https://m.media-amazon.com/images/I/71qwVrnL2mL._UF1000,1000_QL80_.jpg',
@@ -104,7 +104,7 @@ const ProductShowcase = () => {
         {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-emerald-600 to-orange-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-pink-600 to-orange-600 bg-clip-text text-transparent">
               Revolutionary Products
             </span>
           </h2>
@@ -123,8 +123,8 @@ const ProductShowcase = () => {
                 onClick={() => setActiveCategory(category.id)}
                 className={`px-5 py-3 rounded-full font-semibold transition-all duration-300 whitespace-nowrap text-sm sm:text-base ${
                   activeCategory === category.id
-                    ? 'bg-emerald-600 text-white shadow-lg'
-                    : 'bg-white text-gray-600 hover:text-emerald-600 hover:bg-emerald-50 shadow-sm'
+                    ? 'bg-pink-600 text-white shadow-lg'
+                    : 'bg-white text-gray-600 hover:text-pink-600 hover:bg-pink-50 shadow-sm'
                 }`}
               >
                 {category.name}
@@ -160,20 +160,20 @@ const ProductShowcase = () => {
                 <div className={`absolute top-3 right-3 flex flex-col space-y-2 transition-all duration-300 ${
                   hoveredProduct === product.id ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'
                 }`}>
-                  <button className="bg-white p-2 rounded-full shadow-lg hover:bg-emerald-50 text-gray-600 hover:text-emerald-600 transition-colors">
+                  <button className="bg-white p-2 rounded-full shadow-lg hover:bg-pink-50 text-gray-600 hover:text-pink-600 transition-colors">
                     <Heart className="w-5 h-5" />
                   </button>
-                  <button className="bg-white p-2 rounded-full shadow-lg hover:bg-emerald-50 text-gray-600 hover:text-emerald-600 transition-colors">
+                  <button className="bg-white p-2 rounded-full shadow-lg hover:bg-pink-50 text-gray-600 hover:text-pink-600 transition-colors">
                     <Info className="w-5 h-5" />
                   </button>
                 </div>
 
-                <div className={`absolute bottom-3 left-3 right-3 transition-all duration-300 ${
+                <div className={`absolute bottom-3 left-3 right-3 transition-all duration-300 ₹{
                   hoveredProduct === product.id ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                 }`}>
                   <button 
                     onClick={() => handleQuickAdd(product)}
-                    className="w-full bg-emerald-600 text-white py-2 px-4 rounded-full font-semibold hover:bg-emerald-700 transition-colors flex items-center justify-center space-x-2"
+                    className="w-full bg-pink-600 text-white py-2 px-4 rounded-full font-semibold hover:bg-pink-700 transition-colors flex items-center justify-center space-x-2"
                   >
                     <ShoppingCart className="w-4 h-4" />
                     <span>Quick Add</span>
@@ -184,7 +184,7 @@ const ProductShowcase = () => {
               {/* Product Info */}
               <div className="p-4 sm:p-6">
                 <div className="flex items-start justify-between mb-2">
-                  <h3 className="text-lg font-semibold text-gray-800 group-hover:text-emerald-600 transition-colors pr-2">
+                  <h3 className="text-lg font-semibold text-gray-800 group-hover:text-pink-700 transition-colors pr-2">
                     {product.name}
                   </h3>
                   <div className="flex items-center space-x-1 flex-shrink-0">
@@ -210,7 +210,7 @@ const ProductShowcase = () => {
 
                 <button 
                   onClick={() => handleAddToCart(product)}
-                  className="w-full bg-gray-100 text-gray-700 py-3 px-4 rounded-xl font-semibold hover:bg-emerald-600 hover:text-white transition-all duration-300 flex items-center justify-center space-x-2"
+                  className="w-full bg-gray-100 text-gray-700 py-3 px-4 rounded-xl font-semibold hover:bg-pink-600 hover:text-white transition-all duration-300 flex items-center justify-center space-x-2"
                 >
                   <ShoppingCart className="w-5 h-5" />
                   <span>Add to Cart</span>
@@ -224,7 +224,7 @@ const ProductShowcase = () => {
         <div className="text-center mt-12">
           <Link 
             to="/products"
-            className="inline-block bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg transition-all duration-300 hover:scale-105 transform"
+            className="inline-block bg-gradient-to-r from-pink-600 to-teal-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg transition-all duration-300 hover:scale-105 transform"
           >
             View All Products
           </Link>
