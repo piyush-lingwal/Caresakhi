@@ -84,13 +84,14 @@ const BlogPost = () => {
       id: 3,
       title: 'Period Pain Management: Natural Remedies That Actually Work',
       slug: 'period-pain-management-natural-remedies',
-      image: 'https://images.pexels.com/photos/7262708/pexels-photo-7262708.jpeg?auto=compress&cs=tinysrgb&w=300'
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoivJqJ5wr0bsjxrh06wSNyZl5yhd5JwngTQ&s
+'
     },
     {
       id: 4,
       title: 'Breaking Period Taboos: Creating Open Conversations',
       slug: 'breaking-period-taboos-open-conversations',
-      image: 'https://images.pexels.com/photos/7319069/pexels-photo-7319069.jpeg?auto=compress&cs=tinysrgb&w=300'
+      image: 'https://cdn.shopify.com/s/files/1/0065/0703/6757/files/3_3c7efe9d-c14e-49eb-ab4d-f54769d61cb9_600x600.jpg?v=1670844914'
     }
   ];
 
