@@ -78,7 +78,7 @@ const BlogPost = () => {
       id: 2,
       title: 'Sustainable Periods: How to Reduce Your Environmental Impact',
       slug: 'sustainable-periods-environmental-impact',
-      image: 'https://images.pexels.com/photos/7319070/pexels-photo-7319070.jpeg?auto=compress&cs=tinysrgb&w=300'
+      image: 'https://cdn.shopify.com/s/files/1/1953/3723/files/2_Small_Changes_Big_Impact__Your_Guide_to_Zero-Waste_Swaps.png?v=1743171692'
     },
     {
       id: 3,
