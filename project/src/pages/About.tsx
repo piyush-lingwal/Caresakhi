@@ -27,21 +27,21 @@ const About = () => {
 
   const team = [
     {
-      name: 'Sarah Johnson',
+      name: 'Piyush Lingwal',
       role: 'Founder & CEO',
-      image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=300',
+      image: 'https://cdn.vectorstock.com/i/500p/51/51/passport-photo-of-young-handsome-man-closeup-vector-20715151.jpg',
       bio: 'Former healthcare professional passionate about women\'s health and sustainability.'
     },
     {
-      name: 'Emily Chen',
+      name: 'Vidhi Garg',
       role: 'Head of Product',
-      image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=300',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZ2PsQ9tIIZFQG-Zv4fn8IitkTzPVRn9U9TEf6m_scZQ9N0WM4inqdvChwmMY-3V2qnc4&usqp=CAU',
       bio: 'Product designer with 10+ years experience in sustainable consumer goods.'
     },
     {
-      name: 'Maria Rodriguez',
+      name: 'Pragya Arya',
       role: 'Head of Marketing',
-      image: 'https://images.pexels.com/photos/1181519/pexels-photo-1181519.jpeg?auto=compress&cs=tinysrgb&w=300',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6c3z4sz4AIsI8rMis01kqV_wxZJIWLMHC8SlsKGdwnvDvILRo8JzOVsS_pY3lIFR1ywk&usqp=CAU',
       bio: 'Marketing strategist focused on authentic brand storytelling and community building.'
     }
   ];
