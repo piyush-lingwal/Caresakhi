@@ -1,40 +1,50 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { User, Package, Heart, Settings, LogOut, Edit, Save, X, MapPin, Wallet as WalletIcon, Crown, Star, ShoppingCart, ArrowUp, ArrowDown } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
 
-// --- Type Definitions for Props ---
-interface ProfileData {
-  name: string;
-  email: string;
-  phone: string;
-  address: string;
-  city: string;
-  state: string;
-  zipCode: string;
-}
+const Account = () => {
+  const { user, logout } = useAuth();
+  const { addItem } = useCart();
+  const [activeTab, setActiveTab] = useState('profile');
+  const [isEditing, setIsEditing] = useState(false);
+  const [profileData, setProfileData] = useState({
+    name: user?.name || '',
+    email: user?.email || '',
+    phone: '123-456-7890',
+    address: '123 Wellness Way',
+    city: 'Mumbai',
+    state: 'Maharashtra',
+    zipCode: '400001'
+  });
 
-interface CartItem {
-  id: number;
-  name: string;
-  price: number;
-  image: string;
-}
+  const getThemeConfig = () => {
+    return {
+      gradient: 'from-pink-500 to-rose-500',
+      bgPattern: 'from-pink-50 to-rose-50',
+      accent: 'pink',
+      icon: Crown,
+      title: 'Customer Account',
+      subtitle: 'Your personal wellness journey'
+    };
+  };
 
-interface MemoizedTabContentProps {
-  activeTab: string;
-  theme: any;
-  profileData: ProfileData;
-  setProfileData: React.Dispatch<React.SetStateAction<ProfileData>>;
-  isEditing: boolean;
-  setIsEditing: React.Dispatch<React.SetStateAction<boolean>>;
-  handleSave: () => void;
-  handleAddToCart: (item: CartItem) => void;
-}
+  const theme = getThemeConfig();
 
-// Memoized Tab Content to prevent unnecessary re-renders
-const MemoizedTabContent: React.FC<MemoizedTabContentProps> = React.memo(({ activeTab, theme, profileData, setProfileData, isEditing, setIsEditing, handleSave, handleAddToCart }) => {
+  const handleSave = () => {
+    setIsEditing(false);
+  };
+
+  const handleAddToCart = (item) => {
+    addItem({
+        id: item.id,
+        name: item.name,
+        price: item.price,
+        image: item.image
+    });
+  };
+
   const mockProducts = [
     { id: 1, name: 'EcoFlow Cup', price: 45, image: 'https://images.pexels.com/photos/7319325/pexels-photo-7319325.jpeg?auto=compress&cs=tinysrgb&w=300', category: 'Menstrual Cups' },
     { id: 2, name: 'ComfortMax Brief', price: 32, image: 'https://images.pexels.com/photos/7262708/pexels-photo-7262708.jpeg?auto=compress&cs=tinysrgb&w=300', category: 'Period Underwear' },
@@ -62,6 +72,18 @@ const MemoizedTabContent: React.FC<MemoizedTabContentProps> = React.memo(({ acti
     { id: 3, type: 'debit', amount: 52.00, date: '2024-01-10', description: 'Order ORD-002' },
   ];
 
+  const tabs = [
+    { id: 'profile', name: 'Profile', icon: User },
+    { id: 'products', name: 'Products', icon: Package },
+    { id: 'kits', name: 'Kits', icon: Heart },
+    { id: 'orders', name: 'Orders', icon: Package },
+    { id: 'map', name: 'Find Stores', icon: MapPin },
+    { id: 'wallet', name: 'Wallet', icon: WalletIcon },
+    { id: 'wishlist', name: 'Wishlist', icon: Heart },
+    { id: 'settings', name: 'Settings', icon: Settings }
+  ];
+  
+  const TabContent = () => {
     switch (activeTab) {
       case 'profile':
         return (
@@ -69,17 +91,17 @@ const MemoizedTabContent: React.FC<MemoizedTabContentProps> = React.memo(({ acti
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6">
               <h2 className="text-2xl font-bold text-gray-800 mb-4 sm:mb-0">Profile Information</h2>
               {!isEditing ? (
-                <button onClick={() => setIsEditing(true)} className={`flex items-center space-x-2 px-4 py-2 bg-gradient-to-r ${theme.gradient} text-white rounded-lg text-sm transition-transform active:scale-95`}>
+                <button onClick={() => setIsEditing(true)} className={`flex items-center space-x-2 px-4 py-2 bg-gradient-to-r ${theme.gradient} text-white rounded-lg text-sm`}>
                   <Edit className="w-4 h-4" />
                   <span>Edit</span>
                 </button>
               ) : (
                 <div className="flex space-x-2">
-                  <button onClick={handleSave} className={`flex items-center space-x-2 px-4 py-2 bg-gradient-to-r ${theme.gradient} text-white rounded-lg text-sm transition-transform active:scale-95`}>
+                  <button onClick={handleSave} className={`flex items-center space-x-2 px-4 py-2 bg-gradient-to-r ${theme.gradient} text-white rounded-lg text-sm`}>
                     <Save className="w-4 h-4" />
                     <span>Save</span>
                   </button>
-                  <button onClick={() => setIsEditing(false)} className="flex items-center space-x-2 px-4 py-2 bg-gray-200 text-gray-700 rounded-lg text-sm transition-transform active:scale-95`}>
+                  <button onClick={() => setIsEditing(false)} className="flex items-center space-x-2 px-4 py-2 bg-gray-200 text-gray-700 rounded-lg text-sm">
                     <X className="w-4 h-4" />
                     <span>Cancel</span>
                   </button>
@@ -93,7 +115,7 @@ const MemoizedTabContent: React.FC<MemoizedTabContentProps> = React.memo(({ acti
                   <input
                     type={key === 'email' ? 'email' : 'text'}
                     value={value}
-                    onChange={(e) => setProfileData(prev => ({...prev, [key]: e.target.value}))}
+                    onChange={(e) => setProfileData({...profileData, [key]: e.target.value})}
                     disabled={!isEditing}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 disabled:bg-gray-50"
                   />
@@ -115,7 +137,7 @@ const MemoizedTabContent: React.FC<MemoizedTabContentProps> = React.memo(({ acti
                                <p className="text-sm text-gray-500">{product.category}</p>
                                <div className="flex justify-between items-center mt-4">
                                    <span className="font-bold text-lg text-gray-900">₹{product.price}</span>
-                                   <button onClick={() => handleAddToCart(product)} className="bg-pink-600 text-white text-sm px-4 py-2 rounded-full hover:bg-pink-700 transition-all duration-200 transform active:scale-95">Add</button>
+                                   <button onClick={() => handleAddToCart(product)} className="bg-pink-600 text-white text-sm px-4 py-2 rounded-full hover:bg-pink-700 transition-colors">Add</button>
                                </div>
                            </div>
                         </div>
@@ -136,7 +158,7 @@ const MemoizedTabContent: React.FC<MemoizedTabContentProps> = React.memo(({ acti
                                <h3 className="font-semibold text-gray-800 mt-2">{kit.name}</h3>
                                <div className="flex justify-between items-center mt-4">
                                    <span className="font-bold text-lg text-gray-900">₹{kit.price}</span>
-                                   <button onClick={() => handleAddToCart(kit)} className="bg-pink-600 text-white text-sm px-4 py-2 rounded-full hover:bg-pink-700 transition-all duration-200 transform active:scale-95">Add</button>
+                                   <button onClick={() => handleAddToCart(kit)} className="bg-pink-600 text-white text-sm px-4 py-2 rounded-full hover:bg-pink-700 transition-colors">Add</button>
                                </div>
                            </div>
                         </div>
@@ -187,7 +209,7 @@ const MemoizedTabContent: React.FC<MemoizedTabContentProps> = React.memo(({ acti
                         <p className="text-4xl font-bold text-gray-800">₹358.01</p>
                         <div className="mt-4">
                             <input type="number" placeholder="Amount" className="w-full sm:w-auto px-3 py-2 border border-gray-300 rounded-lg mb-2 sm:mb-0 sm:mr-2" />
-                            <button className="w-full sm:w-auto bg-pink-600 text-white px-4 py-2 rounded-lg hover:bg-pink-700 transition-colors transform active:scale-95">Add Balance</button>
+                            <button className="w-full sm:w-auto bg-pink-600 text-white px-4 py-2 rounded-lg hover:bg-pink-700 transition-colors">Add Balance</button>
                         </div>
                     </div>
                     <div>
@@ -226,7 +248,7 @@ const MemoizedTabContent: React.FC<MemoizedTabContentProps> = React.memo(({ acti
                                 <h4 className="font-semibold text-gray-800">{item.name}</h4>
                                 <p className="text-gray-600">₹{item.price}</p>
                             </div>
-                            <button onClick={() => handleAddToCart(item)} className="text-pink-500 hover:text-pink-700 p-2 rounded-full hover:bg-pink-50 transition-colors transform active:scale-95"><ShoppingCart className="w-5 h-5"/></button>
+                            <button onClick={() => handleAddToCart(item)} className="text-pink-500 hover:text-pink-700 p-2 rounded-full hover:bg-pink-50 transition-colors"><ShoppingCart className="w-5 h-5"/></button>
                         </div>
                     ))}
                  </div>
@@ -246,7 +268,7 @@ const MemoizedTabContent: React.FC<MemoizedTabContentProps> = React.memo(({ acti
                     </div>
                      <div className="border-t pt-6">
                         <h3 className="font-semibold text-lg mb-2 text-red-600">Danger Zone</h3>
-                         <button className="bg-red-500 text-white text-sm px-4 py-2 rounded-lg hover:bg-red-600 transition-colors transform active:scale-95">Delete Account</button>
+                         <button className="bg-red-500 text-white text-sm px-4 py-2 rounded-lg hover:bg-red-600 transition-colors">Delete Account</button>
                     </div>
                  </div>
             </div>
@@ -254,55 +276,7 @@ const MemoizedTabContent: React.FC<MemoizedTabContentProps> = React.memo(({ acti
       default:
         return null;
     }
-});
-
-// --- Static object defined outside the component ---
-const theme = {
-    gradient: 'from-pink-500 to-rose-500',
-    bgPattern: 'from-pink-50 to-rose-50',
-    accent: 'pink',
-    icon: Crown,
-    title: 'Customer Account'
-};
-
-const Account = () => {
-  const { user, logout } = useAuth();
-  const { addItem } = useCart();
-  const [activeTab, setActiveTab] = useState('profile');
-  const [isEditing, setIsEditing] = useState(false);
-  const [profileData, setProfileData] = useState<ProfileData>({
-    name: user?.name || '',
-    email: user?.email || '',
-    phone: '123-456-7890',
-    address: '123 Wellness Way',
-    city: 'Mumbai',
-    state: 'Maharashtra',
-    zipCode: '400001'
-  });
-
-  const handleSave = useCallback(() => {
-    setIsEditing(false);
-  }, []);
-
-  const handleAddToCart = useCallback((item: CartItem) => {
-    addItem({
-        id: item.id,
-        name: item.name,
-        price: item.price,
-        image: item.image
-    });
-  }, [addItem]);
-
-  const tabs = [
-    { id: 'profile', name: 'Profile', icon: User },
-    { id: 'products', name: 'Products', icon: Package },
-    { id: 'kits', name: 'Kits', icon: Heart },
-    { id: 'orders', name: 'Orders', icon: Package },
-    { id: 'map', name: 'Find Stores', icon: MapPin },
-    { id: 'wallet', name: 'Wallet', icon: WalletIcon },
-    { id: 'wishlist', name: 'Wishlist', icon: Heart },
-    { id: 'settings', name: 'Settings', icon: Settings }
-  ];
+  };
 
   return (
     <div className={`min-h-screen bg-gradient-to-br ${theme.bgPattern} pt-20`}>
@@ -377,16 +351,7 @@ const Account = () => {
 
             {/* Main Content */}
             <main className="flex-1 bg-white rounded-2xl shadow-lg p-4 sm:p-6">
-              <MemoizedTabContent 
-                activeTab={activeTab}
-                theme={theme}
-                profileData={profileData}
-                setProfileData={setProfileData}
-                isEditing={isEditing}
-                setIsEditing={setIsEditing}
-                handleSave={handleSave}
-                handleAddToCart={handleAddToCart}
-              />
+              <TabContent />
             </main>
           </div>
         </div>
