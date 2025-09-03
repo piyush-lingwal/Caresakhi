@@ -36,14 +36,14 @@ const Contact = () => {
       icon: Phone,
       title: 'Call Us',
       description: 'Speak with our customer service team',
-      contact: '1-800-WECARE-1',
+      contact: '1-800-4392-39',
       action: 'tel:1-800-932-2731'
     },
     {
       icon: MessageCircle,
       title: 'Live Chat',
       description: 'Chat with us in real-time for instant support',
-      contact: 'Available 9 AM - 6 PM EST',
+      contact: 'Available 9AM - 6PM IST',
       action: '#'
     }
   ];
@@ -212,8 +212,8 @@ const Contact = () => {
                         <h4 className="font-semibold text-gray-800">Address</h4>
                         <p className="text-gray-600">
                           CareSakhi Health Solutions<br />
-                          Andheri East, Mumbai 400069<br />
-                          Maharashtra, India
+                          Mehra Gaon ,Dhookot<br />
+                          Dehradun, India
                         </p>
                       </div>
                     </div>
