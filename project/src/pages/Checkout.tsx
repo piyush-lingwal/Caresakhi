@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate, Navigate } from 'react-router-dom';
+import { useNavigate, Navigate, useLocation } from 'react-router-dom';
 import { CreditCard, Lock, Truck, MapPin, Coins } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
@@ -9,10 +9,11 @@ const Checkout = () => {
   const { state, clearCart } = useCart();
   const { user, isLoading } = useAuth();
   const navigate = useNavigate();
-  
-  // Redirect to register if user is not logged in
+  const location = useLocation();
+
+  // Redirect to login if user is not logged in
   if (!isLoading && !user) {
-    return <Navigate to="/register" replace />;
+    return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
   const [formData, setFormData] = useState({
@@ -77,7 +78,7 @@ const Checkout = () => {
     return null;
   }
 
-  const subtotal = state.total;
+  const subtotal = state.items.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const tax = subtotal * 0.08;
   const coinDiscount = coinsToUse;
   const total = Math.max(0, subtotal + tax - coinDiscount);
