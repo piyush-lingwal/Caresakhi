@@ -185,7 +185,7 @@ const Products = () => {
               {sortedProducts.map(product => (
                 <Link
                   key={product.id}
-                  to={`/product/₹{product.id}`}
+                  to={`/product/${product.id}`}
                   className={`group bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden ${
                     viewMode === 'list' ? 'flex' : ''
                   }`}
