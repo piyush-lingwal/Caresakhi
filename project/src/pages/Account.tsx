@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { User, Package, Heart, Settings, LogOut, Edit, Save, X, MapPin, Wallet as WalletIcon, Crown, Star, ShoppingCart } from 'lucide-react';
+import { User, Package, Heart, Settings, LogOut, Edit, Save, X, MapPin, Wallet as WalletIcon, Crown, Star, ShoppingCart, ArrowUp, ArrowDown } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
+import { useCart } from '../context/CartContext';
 
 const Account = () => {
   const { user, logout } = useAuth();
+  const { addItem } = useCart();
   const [activeTab, setActiveTab] = useState('profile');
   const [isEditing, setIsEditing] = useState(false);
   const [profileData, setProfileData] = useState({
@@ -34,6 +36,15 @@ const Account = () => {
     setIsEditing(false);
   };
 
+  const handleAddToCart = (item) => {
+    addItem({
+        id: item.id,
+        name: item.name,
+        price: item.price,
+        image: item.image
+    });
+  };
+
   const mockProducts = [
     { id: 1, name: 'EcoFlow Cup', price: 45, image: 'https://images.pexels.com/photos/7319325/pexels-photo-7319325.jpeg?auto=compress&cs=tinysrgb&w=300', category: 'Menstrual Cups' },
     { id: 2, name: 'ComfortMax Brief', price: 32, image: 'https://images.pexels.com/photos/7262708/pexels-photo-7262708.jpeg?auto=compress&cs=tinysrgb&w=300', category: 'Period Underwear' },
@@ -53,6 +64,12 @@ const Account = () => {
   const mockWishlist = [
     { id: 3, name: 'Travel Kit Pro', price: 25, image: 'https://images.pexels.com/photos/7319069/pexels-photo-7319069.jpeg?auto=compress&cs=tinysrgb&w=300' },
     { id: 5, name: 'ActiveFlow Brief', price: 38, image: 'https://images.pexels.com/photos/7262708/pexels-photo-7262708.jpeg?auto=compress&cs=tinysrgb&w=300' }
+  ];
+  
+  const mockWalletHistory = [
+    { id: 1, type: 'credit', amount: 500.00, date: '2024-01-20', description: 'Added to wallet' },
+    { id: 2, type: 'debit', amount: 89.99, date: '2024-01-15', description: 'Order ORD-001' },
+    { id: 3, type: 'debit', amount: 52.00, date: '2024-01-10', description: 'Order ORD-002' },
   ];
 
   const tabs = [
@@ -120,7 +137,7 @@ const Account = () => {
                                <p className="text-sm text-gray-500">{product.category}</p>
                                <div className="flex justify-between items-center mt-4">
                                    <span className="font-bold text-lg text-gray-900">₹{product.price}</span>
-                                   <button className="bg-pink-600 text-white text-sm px-4 py-2 rounded-full hover:bg-pink-700 transition-colors">Add</button>
+                                   <button onClick={() => handleAddToCart(product)} className="bg-pink-600 text-white text-sm px-4 py-2 rounded-full hover:bg-pink-700 transition-colors">Add</button>
                                </div>
                            </div>
                         </div>
@@ -141,7 +158,7 @@ const Account = () => {
                                <h3 className="font-semibold text-gray-800 mt-2">{kit.name}</h3>
                                <div className="flex justify-between items-center mt-4">
                                    <span className="font-bold text-lg text-gray-900">₹{kit.price}</span>
-                                   <button className="bg-pink-600 text-white text-sm px-4 py-2 rounded-full hover:bg-pink-700 transition-colors">View</button>
+                                   <button onClick={() => handleAddToCart(kit)} className="bg-pink-600 text-white text-sm px-4 py-2 rounded-full hover:bg-pink-700 transition-colors">Add</button>
                                </div>
                            </div>
                         </div>
@@ -186,9 +203,36 @@ const Account = () => {
         return (
             <div className="animate-fade-in">
                 <h2 className="text-2xl font-bold text-gray-800 mb-6">My Wallet</h2>
-                <div className="bg-gradient-to-r from-pink-50 to-rose-50 p-6 rounded-lg text-center">
-                    <p className="text-sm text-gray-600">Current Balance</p>
-                    <p className="text-4xl font-bold text-gray-800">₹250.00</p>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div className="bg-gradient-to-r from-pink-50 to-rose-50 p-6 rounded-lg text-center">
+                        <p className="text-sm text-gray-600">Current Balance</p>
+                        <p className="text-4xl font-bold text-gray-800">₹358.01</p>
+                        <div className="mt-4">
+                            <input type="number" placeholder="Amount" className="w-full sm:w-auto px-3 py-2 border border-gray-300 rounded-lg mb-2 sm:mb-0 sm:mr-2" />
+                            <button className="w-full sm:w-auto bg-pink-600 text-white px-4 py-2 rounded-lg hover:bg-pink-700 transition-colors">Add Balance</button>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 className="font-semibold text-lg mb-2">Transaction History</h3>
+                        <div className="space-y-3">
+                            {mockWalletHistory.map(item => (
+                                <div key={item.id} className="flex justify-between items-center bg-gray-50 p-3 rounded-lg">
+                                    <div className="flex items-center space-x-3">
+                                        <div className={`p-2 rounded-full ${item.type === 'credit' ? 'bg-green-100' : 'bg-red-100'}`}>
+                                            {item.type === 'credit' ? <ArrowUp className="w-4 h-4 text-green-600"/> : <ArrowDown className="w-4 h-4 text-red-600"/>}
+                                        </div>
+                                        <div>
+                                            <p className="font-semibold text-sm capitalize">{item.description}</p>
+                                            <p className="text-xs text-gray-500">{item.date}</p>
+                                        </div>
+                                    </div>
+                                    <p className={`font-semibold ${item.type === 'credit' ? 'text-green-600' : 'text-red-600'}`}>
+                                        {item.type === 'credit' ? '+' : '-'}₹{item.amount.toFixed(2)}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </div>
         );
@@ -204,7 +248,7 @@ const Account = () => {
                                 <h4 className="font-semibold text-gray-800">{item.name}</h4>
                                 <p className="text-gray-600">₹{item.price}</p>
                             </div>
-                            <button className="text-pink-500 hover:text-pink-700 p-2 rounded-full hover:bg-pink-50 transition-colors"><ShoppingCart className="w-5 h-5"/></button>
+                            <button onClick={() => handleAddToCart(item)} className="text-pink-500 hover:text-pink-700 p-2 rounded-full hover:bg-pink-50 transition-colors"><ShoppingCart className="w-5 h-5"/></button>
                         </div>
                     ))}
                  </div>
