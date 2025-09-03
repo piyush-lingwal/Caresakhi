@@ -29,7 +29,7 @@ const Header = () => {
           
           <Link to="/" className="flex items-center group flex-shrink-0">
             <img 
-              src="/navbar logo2.png" 
+              src="/navbar logo3.png" 
               alt="CareSakhi" 
               loading="lazy"
               className="h-14 w-auto object-contain transition-transform duration-300"
