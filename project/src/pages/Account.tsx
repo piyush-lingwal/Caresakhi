@@ -46,14 +46,14 @@ const Account = () => {
   };
 
   const mockProducts = [
-    { id: 1, name: 'EcoFlow Cup', price: 45, image: 'https://images.pexels.com/photos/7319325/pexels-photo-7319325.jpeg?auto=compress&cs=tinysrgb&w=300', category: 'Menstrual Cups' },
-    { id: 2, name: 'ComfortMax Brief', price: 32, image: 'https://images.pexels.com/photos/7262708/pexels-photo-7262708.jpeg?auto=compress&cs=tinysrgb&w=300', category: 'Period Underwear' },
-    { id: 3, name: 'Travel Kit Pro', price: 25, image: 'https://images.pexels.com/photos/7319069/pexels-photo-7319069.jpeg?auto=compress&cs=tinysrgb&w=300', category: 'Accessories' },
+    { id: 1, name: 'EcoFlow Cup', price: 45, image: 'https://ecofriendlyitems.com/cdn/shop/files/EcoFlowKitonpinkbackground_670a3761-6a4d-4c4e-850c-6679c74f7e20.jpg?v=1706546411&width=1946', category: 'Menstrual Cups' },
+    { id: 2, name: 'ComfortMax Brief', price: 32, image: 'https://ae01.alicdn.com/kf/S57bf14fa52454c16934ae43989ed0a431.jpg?width=800&height=800&hash=1600', category: 'Period Underwear' },
+    { id: 3, name: 'Travel Kit Pro', price: 25, image: 'https://m.media-amazon.com/images/I/41T+fJ8fccL.jpg_BO30,255,255,255_UF900,850_SR1910,1000,0,C_QL100_.jpg', category: 'Accessories' },
   ];
 
    const mockKits = [
-    { id: 101, name: 'All-in-One Complete Kit', price: 149, image: 'https://images.pexels.com/photos/7319070/pexels-photo-7319070.jpeg?auto=compress&cs=tinysrgb&w=300', badge: 'Most Popular' },
-    { id: 102, name: 'Beginner Starter Kit', price: 89, image: 'https://images.pexels.com/photos/7319325/pexels-photo-7319325.jpeg?auto=compress&cs=tinysrgb&w=300', badge: 'Best for Beginners' },
+    { id: 101, name: 'All-in-One Complete Kit', price: 149, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn6UALBLFvrhzutfWpX3EHb3JbOXlQhwyilg&s', badge: 'Most Popular' },
+    { id: 102, name: 'Beginner Starter Kit', price: 89, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJxH0zKZ7CvUyv6E-2uxD8aNECrEpaCChenw&s', badge: 'Best for Beginners' },
    ];
 
   const mockOrders = [
