@@ -138,7 +138,7 @@ const Header = () => {
                     <Link to="/register" onClick={() => setIsMenuOpen(false)} className="flex-1 text-center px-4 py-3 bg-pink-600 text-white rounded-lg font-medium">Sign Up</Link>
                   </div>
                 )}
-                <a href="/app-release.apk" download="CareSakhi-App.apk" onClick={() => setIsMenuOpen(false)} className="flex items-center justify-center space-x-2 bg-emerald-600 text-white px-4 py-3 rounded-lg font-medium"><Download className="w-5 h-5" /> <span>Download App</span></a>
+                <a href="/CareSakhi.apk" download="CareSakhi-App.apk" onClick={() => setIsMenuOpen(false)} className="flex items-center justify-center space-x-2 bg-emerald-600 text-white px-4 py-3 rounded-lg font-medium"><Download className="w-5 h-5" /> <span>Download App</span></a>
               </div>
             </nav>
           </div>
