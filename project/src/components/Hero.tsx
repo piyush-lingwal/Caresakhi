@@ -25,7 +25,7 @@ const Hero = () => {
     },
     {
       title: "Revolutionizing Women's Health",
-      subtitle: "Medical Grade • Long Lastinge",
+      subtitle: "Medical Grade • Long Lasting",
       description: "Advanced technology meets traditional care. Experience the future of menstrual health with our award-winning products.",
       cta: "Get Started",
       ctaSecondary: "Watch Demo",
