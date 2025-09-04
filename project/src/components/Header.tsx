@@ -53,7 +53,7 @@ const Header = () => {
           <div className="flex items-center space-x-1 sm:space-x-2">
             <div className="hidden md:flex items-center space-x-2">
                 <a
-                    href="/app-release.apk"
+                    href="/CareSakhi.apk"
                     download="CareSakhi-App.apk"
                     className="flex items-center space-x-2 bg-pink-600 text-white px-3 py-2 rounded-full font-medium text-sm hover:bg-pink-700 transition-all duration-300"
                 >
